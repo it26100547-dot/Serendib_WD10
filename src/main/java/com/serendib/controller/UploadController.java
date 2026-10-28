@@ -13,8 +13,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/admin/uploads")
 public class UploadController {
-    private final FileStorageService fileStorageService; private final SessionService sessionService;
-    public UploadController(FileStorageService fileStorageService, SessionService sessionService) { this.fileStorageService = fileStorageService; this.sessionService = sessionService; }
+    private final FileStorageService fileStorageService;
+    private final SessionService sessionService;
+    public UploadController(FileStorageService fileStorageService, SessionService sessionService) {
+        this.fileStorageService = fileStorageService;
+        this.sessionService = sessionService;
+    }
 
     @PostMapping(consumes = "multipart/form-data")
     public ResponseEntity<ApiResponse> upload(@RequestPart("file") MultipartFile file, HttpSession session) {

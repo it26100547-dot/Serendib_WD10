@@ -30,13 +30,15 @@ public class HotelController {
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getById(@PathVariable("id") Long id) {
         Hotel item = service.getById(id);
-        if (item == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error("Hotel not found."));
+        if (item == null)
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error("Hotel not found."));
         return ResponseEntity.ok(ApiResponse.ok(item));
     }
 
     @PostMapping
     public ResponseEntity<ApiResponse> create(@RequestBody Hotel hotel, HttpSession session) {
-        if (!sessionService.isAdmin(session)) return adminOnly(session);
+        if (!sessionService.isAdmin(session))
+            return adminOnly(session);
         try {
             Hotel saved = service.create(hotel);
             return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok("Hotel created successfully.", saved));

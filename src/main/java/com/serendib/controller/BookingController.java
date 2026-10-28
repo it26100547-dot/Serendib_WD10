@@ -59,20 +59,23 @@ public class BookingController {
     @GetMapping("/me")
     public ResponseEntity<ApiResponse> myBookings(HttpSession session) {
         User user = sessionService.getCurrentUser(session);
-        if (user == null) return unauthorizedList();
+        if (user == null)
+            return unauthorizedList();
         return ResponseEntity.ok(ApiResponse.ok("Your bookings", bookingService.getForUser(user.getId())));
     }
 
     @PostMapping
     public ResponseEntity<ApiResponse> create(@RequestBody Booking booking, HttpSession session) {
         User user = sessionService.getCurrentUser(session);
-        if (user == null) return unauthorizedBooking();
+        if (user == null)
+            return unauthorizedBooking();
 
         try {
             booking.setUserId(user.getId());
             booking.setUserEmail(user.getEmail());
             booking.setCustomerName(user.getFullName());
-            if (booking.getPhone() == null || booking.getPhone().isBlank()) booking.setPhone(user.getPhone());
+            if (booking.getPhone() == null || booking.getPhone().isBlank())
+                booking.setPhone(user.getPhone());
 
             calculatePrice(booking);
             booking.setStatus("PENDING_PAYMENT");
@@ -92,14 +95,17 @@ public class BookingController {
     @GetMapping("/{id}/receipt")
     public ResponseEntity<Resource> receipt(@PathVariable("id") Long id, HttpSession session) {
         User user = sessionService.getCurrentUser(session);
-        if (user == null) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        if (user == null)
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 
         try {
             Booking booking = getOwnedBooking(id, user);
-            if (booking.getPaymentSlipFile() == null) return ResponseEntity.notFound().build();
+            if (booking.getPaymentSlipFile() == null)
+                return ResponseEntity.notFound().build();
 
             Path path = fileStorageService.getReceiptPath(booking.getPaymentSlipFile());
-            if (!Files.exists(path)) return ResponseEntity.notFound().build();
+            if (!Files.exists(path))
+                return ResponseEntity.notFound().build();
 
             Resource resource = new UrlResource(path.toUri());
             String contentType = Files.probeContentType(path);
@@ -122,7 +128,8 @@ public class BookingController {
 
     private Booking getOwnedBooking(Long id, User user) {
         Booking booking = bookingService.getById(id);
-        if (booking == null) throw new IllegalArgumentException("Booking not found.");
+        if (booking == null)
+            throw new IllegalArgumentException("Booking not found.");
 
         if (!user.isAdmin() && !user.getId().equals(booking.getUserId())) {
             throw new IllegalArgumentException("You cannot access another user's booking.");
@@ -137,7 +144,8 @@ public class BookingController {
 
         if ("PACKAGE".equals(type)) {
             TourPackage p = packageService.getById(booking.getItemId());
-            if (p == null) throw new IllegalArgumentException("Tour package not found.");
+            if (p == null)
+                throw new IllegalArgumentException("Tour package not found.");
             checkStartDate(booking.getStartDate());
             booking.setItemName(p.getName());
             booking.setUnitPrice(p.getPrice());
@@ -148,7 +156,8 @@ public class BookingController {
 
         if ("HOTEL".equals(type)) {
             Hotel hotel = hotelService.getById(booking.getItemId());
-            if (hotel == null) throw new IllegalArgumentException("Hotel not found.");
+            if (hotel == null)
+                throw new IllegalArgumentException("Hotel not found.");
 
             Hotel.Room selectedRoom = null;
             for (Hotel.Room room : hotel.getRooms()) {
@@ -157,14 +166,16 @@ public class BookingController {
                     break;
                 }
             }
-            if (selectedRoom == null && !hotel.getRooms().isEmpty()) selectedRoom = hotel.getRooms().get(0);
+            if (selectedRoom == null && !hotel.getRooms().isEmpty())
+                selectedRoom = hotel.getRooms().get(0);
 
             double pricePerNight = selectedRoom != null && selectedRoom.getPrice() != null
                     ? selectedRoom.getPrice() : hotel.getFromPrice();
             int nights = calculateDays(booking.getStartDate(), booking.getEndDate(), true);
 
             booking.setItemName(hotel.getName());
-            if (selectedRoom != null) booking.setOptionName(selectedRoom.getName());
+            if (selectedRoom != null)
+                booking.setOptionName(selectedRoom.getName());
             booking.setUnitPrice(pricePerNight);
             booking.setQuantity(nights);
             booking.setTotal(pricePerNight * nights);
@@ -173,7 +184,8 @@ public class BookingController {
 
         if ("TRANSPORT".equals(type)) {
             Transport transport = transportService.getById(booking.getItemId());
-            if (transport == null) throw new IllegalArgumentException("Vehicle not found.");
+            if (transport == null)
+                throw new IllegalArgumentException("Vehicle not found.");
             int days = calculateDays(booking.getStartDate(), booking.getEndDate(), false);
             booking.setItemName(transport.getName());
             booking.setUnitPrice(transport.getPrice());
@@ -188,7 +200,8 @@ public class BookingController {
     private void checkStartDate(String startDate) {
         try {
             LocalDate start = LocalDate.parse(startDate);
-            if (start.isBefore(LocalDate.now())) throw new IllegalArgumentException("Booking date cannot be in the past.");
+            if (start.isBefore(LocalDate.now()))
+                throw new IllegalArgumentException("Booking date cannot be in the past.");
         } catch (IllegalArgumentException e) {
             throw e;
         } catch (Exception e) {
@@ -200,7 +213,8 @@ public class BookingController {
         try {
             LocalDate start = LocalDate.parse(startDate);
             LocalDate end = LocalDate.parse(endDate);
-            if (start.isBefore(LocalDate.now())) throw new IllegalArgumentException("Booking date cannot be in the past.");
+            if (start.isBefore(LocalDate.now()))
+                throw new IllegalArgumentException("Booking date cannot be in the past.");
 
             long difference = ChronoUnit.DAYS.between(start, end);
             if (difference < 0 || (endMustBeLater && difference == 0)) {
