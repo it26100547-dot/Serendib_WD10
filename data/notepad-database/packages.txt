@@ -31,12 +31,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardSubtitle" : "7 Days / 6 Nights • 5 Stops",
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$790",
-  "cardSubtitle" : "7 Days / 6 Nights • 5 Stops",
-  "cardCategory" : "Hill Country",
   "cardImage" : "",
-  "cardTitle" : "Secret Udrata"
+  "cardTitle" : "Secret Udrata",
+  "cardCategory" : "Hill Country"
 }, {
   "id" : 2,
   "active" : true,
@@ -70,12 +70,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$690",
-  "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
-  "cardCategory" : "Culture",
   "cardImage" : "",
-  "cardTitle" : "Ancient Ceylon"
+  "cardTitle" : "Ancient Ceylon",
+  "cardCategory" : "Culture"
 }, {
   "id" : 3,
   "active" : true,
@@ -109,12 +109,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardSubtitle" : "5 Days / 4 Nights • 5 Stops",
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$575",
-  "cardSubtitle" : "5 Days / 4 Nights • 5 Stops",
-  "cardCategory" : "Beach",
   "cardImage" : "",
-  "cardTitle" : "Southern Paradise"
+  "cardTitle" : "Southern Paradise",
+  "cardCategory" : "Beach"
 }, {
   "id" : 4,
   "active" : true,
@@ -148,12 +148,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$815",
-  "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
-  "cardCategory" : "Wildlife",
   "cardImage" : "",
-  "cardTitle" : "Wild Ceylon"
+  "cardTitle" : "Wild Ceylon",
+  "cardCategory" : "Wildlife"
 }, {
   "id" : 5,
   "active" : true,
@@ -207,10 +207,10 @@
   "days" : 5,
   "nights" : 4,
   "normalPrice" : 700.0,
-  "price" : 590.0,
+  "price" : 50.0,
   "rating" : 4.5,
   "cover" : "",
-  "images" : [ "", "", "" ],
+  "images" : [ ],
   "destinations" : [ "Jaffna", "Nainativu", "Delft", "Mannar" ],
   "destinationIds" : [ 9 ],
   "transportId" : 2,
@@ -226,10 +226,10 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
-  "itemType" : "PACKAGE",
-  "cardPriceFormatted" : "$590",
   "cardSubtitle" : "5 Days / 4 Nights • 4 Stops",
-  "cardCategory" : "Culture",
+  "itemType" : "PACKAGE",
+  "cardPriceFormatted" : "$50",
   "cardImage" : "",
-  "cardTitle" : "Northern Heritage"
+  "cardTitle" : "Northern Heritage",
+  "cardCategory" : "Culture"
 } ]
