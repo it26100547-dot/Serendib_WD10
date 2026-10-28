@@ -88,7 +88,13 @@ public class UserService {
     }
 
 
-
+    // Delete user by ID
+    public boolean deleteById(Long id) {
+        if (!repository.existsById(id)) {
+            throw new IllegalArgumentException("User not found with id: " + id);
+        }
+        return repository.deleteById(id);
+    }
 
 
 
@@ -99,4 +105,10 @@ public class UserService {
         if (user.getEmail() == null || user.getEmail().isBlank()) throw new IllegalArgumentException("Email is required.");
         if (user.getPassword() == null || user.getPassword().isBlank()) throw new IllegalArgumentException("Password is required.");
     }
+
+
+
+
+
 }
+

@@ -83,6 +83,26 @@ public class UserRepository {
         writeAll(items);
         return user;
     }
+    // Logic for DELETE: remove the record by ID and write back to file
+    public synchronized boolean deleteById(Long id) {
+        if (id == null) return false;
+        List<User> items = findAll();
+
+        boolean removed = items.removeIf(user -> id.equals(user.getId()));
+
+        if (removed) {
+            writeAll(items);
+        }
+        return removed;
+    }
+
+
+
+
+
+
+
+
 
 
 
