@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Home | Serendib</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="stylesheet" href="css/style.css?v=4">
+</head>
+
+<body class="home-page">
+
+    <!-- Fixed full-screen image slideshow -->
+    <div class="hero-slides" id="heroSlides" aria-hidden="true">
+        <div class="hero-slide is-active">
+            <img src="assets/images/hero-sigiriya-gardens.jpg" alt="Sigiriya Water Gardens">
+        </div>
+        <div class="hero-slide">
+            <img src="assets/images/hero-nine-arch-train.jpg" alt="Nine Arch Bridge Ella Train">
+        </div>
+        <div class="hero-slide">
+            <img src="assets/images/hero-sigiriya-aerial.jpg" alt="Sigiriya Rock Fortress Aerial View">
+        </div>
+        <div class="hero-slide">
+            <img src="assets/images/hero-anuradhapura-sunrise.jpg" alt="Anuradhapura Stupa at Sunrise">
+        </div>
+        <div class="hero-slide">
+            <img src="assets/images/hero-elephants.jpg" alt="Sri Lankan Wild Elephants Gathering">
+        </div>
+    </div>
+
+    <!-- Fixed cinematic overlay -->
+    <div class="image-hero-overlay" aria-hidden="true"></div>
+
+    <!-- Sticky glass navbar -->
+    <div id="siteHeader"></div>
+
+    <main>
+
+        <!-- Welcome Hero Section -->
+        <section class="image-hero" aria-label="Welcome to Sri Lanka">
+            <div class="image-hero-content">
+                <h1 class="hero-welcome" aria-label="Welcome to Sri Lanka">
+                    <span id="typingWelcome"></span>
+                    <span class="typing-cursor" aria-hidden="true">|</span>
+                </h1>
+                <p class="hero-subtext">
+                    Discover ancient temples, mist-covered mountains, sun-kissed beaches, and untamed wildlife in the pearl of the Indian Ocean.
+                </p>
+
+                <!-- Interactive Hero Image Slide Bar & Navigation -->
+                <div class="hero-slidebar-container" aria-label="Image Slideshow Controls">
+                    <button type="button" class="slide-nav-btn prev-btn" id="heroPrevBtn" aria-label="Previous Slide">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="hero-slide-bar" id="heroSlideBar" role="tablist" aria-label="Slides">
+                        <button type="button" class="slide-bar-item is-active" data-index="0" role="tab" aria-selected="true" aria-label="Slide 1: Sigiriya Water Gardens">
+                            <span class="slide-bar-fill"></span>
+                        </button>
+                        <button type="button" class="slide-bar-item" data-index="1" role="tab" aria-selected="false" aria-label="Slide 2: Nine Arch Bridge Ella">
+                            <span class="slide-bar-fill"></span>
+                        </button>
+                        <button type="button" class="slide-bar-item" data-index="2" role="tab" aria-selected="false" aria-label="Slide 3: Sigiriya Rock Fortress">
+                            <span class="slide-bar-fill"></span>
+                        </button>
+                        <button type="button" class="slide-bar-item" data-index="3" role="tab" aria-selected="false" aria-label="Slide 4: Anuradhapura Stupa">
+                            <span class="slide-bar-fill"></span>
+                        </button>
+                        <button type="button" class="slide-bar-item" data-index="4" role="tab" aria-selected="false" aria-label="Slide 5: Wild Elephants">
+                            <span class="slide-bar-fill"></span>
+                        </button>
+                    </div>
+                    <button type="button" class="slide-nav-btn next-btn" id="heroNextBtn" aria-label="Next Slide">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scroll indicator linking down to content -->
+            <a href="#destinationsSection" class="hero-scroll" aria-label="Scroll down to popular items">
+                <span class="hero-scroll-mouse">
+                    <span class="hero-scroll-dot"></span>
+                </span>
+                <span class="hero-scroll-text">Scroll To Explore</span>
+                <i class="fa-solid fa-chevron-down hero-scroll-arrow"></i>
+            </a>
+        </section>
+
+        <!-- Scrollable content sections over fixed background -->
+        <div class="home-sections-wrap">
+
+            <!-- 1. Popular Destinations Section -->
+            <section class="section" id="destinationsSection">
+                <div class="container">
+                    <div class="section-head">
+                        <div>
+                            <span class="eyebrow">Iconic Places</span>
+                            <h2>Popular Destinations</h2>
+                            <p>Explore Sri Lanka's most cherished historical, cultural, and scenic landmarks across every province.</p>
+                        </div>
+                        <a href="destinations.html" class="btn btn-outline">Explore All Destinations <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="cards" id="homeDestinations"></div>
+                </div>
+            </section>
+
+            <!-- 2. Popular Hotels Section -->
+            <section class="section alt" id="hotelsSection">
+                <div class="container">
+                    <div class="section-head">
+                        <div>
+                            <span class="eyebrow">Serene Stays</span>
+                            <h2>Popular Hotels</h2>
+                            <p>Relax in luxury boutique resorts, mountain retreats, and beachside villas tailored for supreme comfort.</p>
+                        </div>
+                        <a href="hotels.html" class="btn btn-outline">Browse All Hotels <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="cards" id="homeHotels"></div>
+                </div>
+            </section>
+
+            <!-- 3. Hot Packages Section -->
+            <section class="section" id="packagesSection">
+                <div class="container">
+                    <div class="section-head">
+                        <div>
+                            <span class="eyebrow">All-In-One Journeys</span>
+                            <h2>Hot Packages</h2>
+                            <p>Handcrafted itineraries combining destinations, private transport, and premier accommodations at exceptional value.</p>
+                        </div>
+                        <a href="packages.html" class="btn btn-outline">View All Packages <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="cards" id="featuredPackages"></div>
+                </div>
+            </section>
+
+            <!-- 4. About Us Section -->
+            <section class="section alt about-section" id="aboutSection">
+                <div class="container">
+                    <div class="about-grid">
+                        <div class="about-content">
+                            <span class="eyebrow">Who We Are</span>
+                            <h2>Welcome to Serendib</h2>
+                            <p class="about-lead">
+                                Serendib is Sri Lanka's premier all-in-one tourism management and travel booking system. We connect explorers from around the globe with the breathtaking heritage, wild landscapes, pristine beaches, and warm hospitality of the paradise island.
+                            </p>
+                            <p>
+                                Whether you are trekking through the misty pine forests of Knuckles, climbing the ancient citadel of Sigiriya, relaxing along the golden bays of Mirissa, or spotting wild elephants in Minneriya, our platform seamlessly coordinates your complete holiday with certified local transports, boutique accommodations, and curated multi-day tour packages.
+                            </p>
+                            <div class="about-features">
+                                <div class="about-feature-item">
+                                    <div class="about-feature-icon">
+                                        <i class="fa-solid fa-map-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Curated Itineraries</h4>
+                                        <p>Handcrafted journeys combining iconic cultural landmarks with untouched scenic trails.</p>
+                                    </div>
+                                </div>
+                                <div class="about-feature-item">
+                                    <div class="about-feature-icon">
+                                        <i class="fa-solid fa-hotel"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Verified Accommodations</h4>
+                                        <p>Handpicked boutique hotels, beach resorts, and scenic mountain lodges guaranteed for quality.</p>
+                                    </div>
+                                </div>
+                                <div class="about-feature-item">
+                                    <div class="about-feature-icon">
+                                        <i class="fa-solid fa-van-shuttle"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Dedicated Private Transport</h4>
+                                        <p>Modern air-conditioned fleets with licensed, knowledgeable chauffeurs for safe island travel.</p>
+                                    </div>
+                                </div>
+                                <div class="about-feature-item">
+                                    <div class="about-feature-icon">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Seamless Booking & Security</h4>
+                                        <p>Instant reservations, secure payments, and dedicated guest assistance throughout your tour.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-stats-card">
+                            <div class="stats-card-inner">
+                                <h3>Island Heritage &amp; Trust</h3>
+                                <p>Designed and built for travelers seeking authenticity, comfort, and lifetime memories in Sri Lanka.</p>
+                                <div class="stats-row">
+                                    <div class="stat-box">
+                                        <span class="stat-number">9+</span>
+                                        <span class="stat-title">Provinces Covered</span>
+                                    </div>
+                                    <div class="stat-box">
+                                        <span class="stat-number">50+</span>
+                                        <span class="stat-title">Attractions &amp; Stays</span>
+                                    </div>
+                                    <div class="stat-box">
+                                        <span class="stat-number">4.9★</span>
+                                        <span class="stat-title">Guest Satisfaction</span>
+                                    </div>
+                                    <div class="stat-box">
+                                        <span class="stat-number">100%</span>
+                                        <span class="stat-title">Authentic Ceylon</span>
+                                    </div>
+                                </div>
+                                <div class="about-cta">
+                                    <a href="packages.html" class="btn btn-primary">Discover Our Tour Packages <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <div id="siteFooter"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        function renderHomeCards(packages, destinations, vehicles, hotels) {
+            const destEl = document.getElementById('homeDestinations');
+            if (destEl && destinations && destinations.length) {
+                destEl.innerHTML = destinations.slice(0, 3).map(destinationCard).join('');
+            }
+
+            const hotEl = document.getElementById('homeHotels');
+            if (hotEl && hotels && hotels.length) {
+                hotEl.innerHTML = hotels.slice(0, 3).map(hotelCard).join('');
+            }
+
+            const pkgEl = document.getElementById('featuredPackages');
+            if (pkgEl && packages && packages.length) {
+                pkgEl.innerHTML = packages.slice(0, 3).map(packageCard).join('');
+            }
+
+            if (typeof wireWishlist === 'function') {
+                wireWishlist();
+            }
+        }
+
+        // 1. Initial render from local cache (data.js)
+        if (window.CEYLON_DATA) {
+            const featuredList = (DATA.packages || []).filter(x => x.featured);
+            renderHomeCards(
+                featuredList.length ? featuredList : DATA.packages,
+                DATA.destinations,
+                DATA.vehicles,
+                DATA.hotels
+            );
+        }
+
+        // 2. Dynamic fetch from Spring Boot REST API (/api/home)
+        if (window.SerendibApi) {
+            SerendibApi.home.getData()
+                .then(res => {
+                    if (res && res.data) {
+                        const d = res.data;
+                        renderHomeCards(
+                            d.featuredPackages,
+                            d.popularDestinations,
+                            d.availableTransport,
+                            d.featuredHotels
+                        );
+                        console.log('[Serendib] Dynamic home page cards updated from backend.');
+                    }
+                })
+                .catch(err => {
+                    console.info('[Serendib] Backend dynamic load skipped:', err.message);
+                });
+        }
+    </script>
+
+    <script>
+        (function () {
+            const typing = document.getElementById('typingWelcome');
+            const text = 'Welcome to Sri Lanka';
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            let typingTimer;
+
+            function typeWelcome() {
+                clearTimeout(typingTimer);
+                if (!typing) return;
+                typing.textContent = '';
+
+                if (reduce) {
+                    typing.textContent = text;
+                    return;
+                }
+
+                let i = 0;
+                function type() {
+                    if (i < text.length) {
+                        typing.textContent += text.charAt(i++);
+                        typingTimer = setTimeout(type, 85);
+                    }
+                }
+                typingTimer = setTimeout(type, 320);
+            }
+
+            typeWelcome();
+        })();
+    </script>
+
+    <!-- Hero Image Slideshow & Interactive Slide Bar Controller -->
+    <script>
+        (function () {
+            const slides = document.querySelectorAll('.hero-slides .hero-slide');
+            const barItems = document.querySelectorAll('.hero-slide-bar .slide-bar-item');
+            const prevBtn = document.getElementById('heroPrevBtn');
+            const nextBtn = document.getElementById('heroNextBtn');
+            const container = document.querySelector('.hero-slidebar-container');
+
+            if (!slides.length) return;
+
+            let currentIndex = 0;
+            let slideTimer = null;
+            const SLIDE_INTERVAL = 5000; // 5 seconds per slide
+
+            function showSlide(index) {
+                if (index < 0) {
+                    index = slides.length - 1;
+                } else if (index >= slides.length) {
+                    index = 0;
+                }
+                currentIndex = index;
+
+                slides.forEach((slide, idx) => {
+                    if (idx === currentIndex) {
+                        slide.classList.add('is-active');
+                    } else {
+                        slide.classList.remove('is-active');
+                    }
+                });
+
+                barItems.forEach((item, idx) => {
+                    const isActive = idx === currentIndex;
+                    item.classList.toggle('is-active', isActive);
+                    item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+            }
+
+            function nextSlide() {
+                showSlide(currentIndex + 1);
+            }
+
+            function prevSlide() {
+                showSlide(currentIndex - 1);
+            }
+
+            function resetTimer() {
+                if (slideTimer) clearInterval(slideTimer);
+                slideTimer = setInterval(nextSlide, SLIDE_INTERVAL);
+            }
+
+            // Click navigation on slide bar indicators
+            barItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const idx = parseInt(item.getAttribute('data-index'), 10);
+                    showSlide(idx);
+                    resetTimer();
+                });
+            });
+
+            // Arrow button clicks
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    resetTimer();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    resetTimer();
+                });
+            }
+
+            // Keyboard navigation when focused
+            if (container) {
+                container.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        prevSlide();
+                        resetTimer();
+                    } else if (e.key === 'ArrowRight') {
+                        nextSlide();
+                        resetTimer();
+                    }
+                });
+            }
+
+            // Start auto rotation
+            resetTimer();
+        })();
+    </script>
+
+</body>
+</html>

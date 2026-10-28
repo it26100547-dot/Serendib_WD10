@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Admin Dashboard | Serendib</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-body">
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <a class="brand" href="../index.html"><span class="brand-mark">S</span><span>Serendib Admin</span></a>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">Dashboard</a><a href="packages.html">Packages</a><a href="destinations.html">Destinations</a><a href="transport.html">Transport</a><a href="hotels.html">Hotels</a><a href="bookings.html">Bookings</a><a href="users.html">Users</a><a href="../index.html">Public Site</a>
+            </nav>
+        </aside>
+        <main class="admin-main">
+            <div class="admin-top">
+                <div>
+                    <span class="eyebrow">SERENDIB</span>
+                    <h1>Admin Dashboard</h1>
+                </div>
+                <a class="btn btn-dark" href="../index.html">View Website</a>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <span>TOUR PACKAGES</span><strong>6</strong>
+                </div>
+                <div class="stat">
+                    <span>DESTINATIONS</span><strong>9</strong>
+                </div>
+                <div class="stat">
+                    <span>HOTELS</span><strong>5</strong>
+                </div>
+                <div class="stat">
+                    <span>VEHICLES</span><strong>5</strong>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <span>USERS</span><strong>128</strong>
+                </div>
+                <div class="stat">
+                    <span>BOOKINGS</span><strong>42</strong>
+                </div>
+                <div class="stat">
+                    <span>PENDING</span><strong>7</strong>
+                </div>
+            </div>
+            <div class="table-card">
+                <div class="table-toolbar">
+                    <strong>Recent Bookings</strong><a href="bookings.html">Manage bookings</a>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Type</th>
+                                <th>Item</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1024</td>
+                                <td>Demo Traveler</td>
+                                <td>Package</td>
+                                <td>Secret Udrata</td>
+                                <td>
+                                    <span class="status active">Confirmed</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1023</td>
+                                <td>Kasun Silva</td>
+                                <td>Hotel</td>
+                                <td>Ella Mist Retreat</td>
+                                <td>
+                                    <span class="status pending">Pending</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1022</td>
+                                <td>Nimal Perera</td>
+                                <td>Transport</td>
+                                <td>Toyota KDH</td>
+                                <td>
+                                    <span class="status active">Confirmed</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div><script src="../js/admin.js"></script></body>
+</html>

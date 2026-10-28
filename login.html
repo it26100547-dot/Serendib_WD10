@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Sign In | Serendib
+    </title>
+
+    <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+    >
+
+    <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+    >
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+    >
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+
+<body class="global-video-page">
+
+<!-- Global cinematic background video -->
+<video
+        class="global-bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+>
+    <source src="BACKGROUND.MP4" type="video/mp4">
+    <source src="/BACKGROUND.MP4" type="video/mp4">
+</video>
+
+
+<div
+        class="global-bg-overlay"
+        aria-hidden="true"
+></div>
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<div id="siteHeader"></div>
+
+
+<!-- =====================================================
+     LOGIN
+     ===================================================== -->
+
+<main class="auth-wrap">
+
+
+    <section class="auth-form">
+
+
+        <div class="form-card">
+
+
+                <span
+                        class="eyebrow"
+                        style="
+                        display: block;
+                        text-align: center;
+                        margin-bottom: 10px;
+                    "
+                >
+                    Welcome Back
+                </span>
+
+
+            <h2>
+                Sign In
+            </h2>
+
+
+            <p>
+                Sign in to continue your journey with Serendib.
+            </p>
+
+
+            <form
+                    id="loginForm"
+                    class="form-grid"
+            >
+
+
+                <!-- EMAIL -->
+
+                <div class="field">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="field">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                    >
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                        type="submit"
+                        class="btn btn-primary"
+                >
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Sign In
+
+                </button>
+
+
+            </form>
+
+
+            <div
+                    id="loginMessage"
+                    class="notice"
+                    style="display: none;"
+            ></div>
+
+
+            <div class="auth-links">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create Account
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<div id="siteFooter"></div>
+
+
+<!-- =====================================================
+     SCRIPTS
+     ===================================================== -->
+
+<script src="js/data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+    const loginForm = document.getElementById("loginForm");
+    const loginMessage = document.getElementById("loginMessage");
+
+    const loginParams = new URLSearchParams(location.search);
+    if (loginParams.get('loggedOut') === '1') {
+        loginMessage.style.display = 'block';
+        loginMessage.className = 'notice success';
+        loginMessage.textContent = 'You have been signed out successfully.';
+    }
+
+    loginForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
+        if (email === "" || password === "") {
+            loginMessage.style.display = "block";
+            loginMessage.className = "notice";
+            loginMessage.textContent = "Please enter your email and password.";
+            return;
+        }
+
+        loginMessage.style.display = "block";
+        loginMessage.className = "notice";
+        loginMessage.textContent = "Signing in...";
+
+        try {
+            const res = await SerendibApi.auth.login(email, password);
+            if (res && res.success) {
+                loginMessage.className = "notice success";
+                loginMessage.textContent = res.message || "Login successful. Redirecting...";
+                setCurrentUser(res.data);
+
+                setTimeout(() => {
+                    // If login was opened from a booking page, return there after
+                    // authentication. Only allow a local page path to prevent an
+                    // external redirect.
+                    const params = new URLSearchParams(location.search);
+                    const returnTo = params.get('return');
+                    const safeReturn = returnTo &&
+                        !returnTo.includes('://') &&
+                        !returnTo.startsWith('//') &&
+                        !returnTo.startsWith('\\') &&
+                        !returnTo.toLowerCase().startsWith('javascript:');
+
+                    if (safeReturn) {
+                        location.replace(returnTo);
+                    } else if (res.data && res.data.role === 'ADMIN') {
+                        location.replace("admin/dashboard.html");
+                    } else {
+                        location.replace("profile.html");
+                    }
+                }, 500);
+            } else {
+                loginMessage.className = "notice error";
+                loginMessage.textContent = res.message || "Invalid credentials.";
+            }
+        } catch (err) {
+            // Never create a fake/local login. The Spring Boot backend is the
+            // authority for both identity and admin permissions.
+            setCurrentUser(null);
+            loginMessage.className = "notice error";
+            loginMessage.textContent = err.message || "Unable to sign in. Check your email/password and make sure run-backend.bat is running.";
+        }
+    });
+</script>
+
+
+</body>
+
+</html>

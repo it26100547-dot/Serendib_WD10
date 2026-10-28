@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>My Bookings | Serendib</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><link rel="stylesheet" href="css/style.css">
+</head>
+<body class="global-video-page">
+    <video class="global-bg-video" autoplay muted loop playsinline aria-hidden="true"><source src="BACKGROUND.MP4" type="video/mp4"></video>
+    <div class="global-bg-overlay">
+    </div>
+    <div id="siteHeader">
+    </div>
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <span class="eyebrow">User area</span>
+                <h1>My Bookings</h1>
+                <p>Track package, hotel and transport requests, upload receipts, and see when an administrator confirms them.</p>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div id="bookingMessage" class="notice">Loading your bookings...</div>
+                <div class="booking-list" id="bookingList">
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="siteFooter">
+    </div><script src="js/data.js"></script><script src="js/api.js"></script><script src="js/app.js"></script><script>
+    const safe=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    function statusClass(s){return s==='CONFIRMED'?'active':'pending';}
+    async function loadBookings(){const msg=document.getElementById('bookingMessage');try{const r=await SerendibApi.bookings.my();const list=r.data||[];msg.style.display=list.length?'none':'block';if(!list.length){msg.textContent='You do not have any bookings yet.';document.getElementById('bookingList').innerHTML='';return;}document.getElementById('bookingList').innerHTML=list.map(b=>`<article class="panel booking-row"><div class="booking-row-main"><div><span class="eyebrow">${safe(b.bookingType)} · #${safe(b.id)}</span><h3>${safe(b.itemName)}</h3><p>${safe(b.optionName||'')} ${b.startDate?`· ${safe(b.startDate)}${b.endDate?` → ${safe(b.endDate)}`:''}`:''}</p></div><div class="booking-total"><strong>$${Number(b.total||0).toFixed(2)}</strong><span class="status ${statusClass(b.status)}">${safe(b.status)}</span></div></div><div class="booking-payment"><div><strong>Payment:</strong> ${safe(b.paymentMethod)} / ${safe(b.paymentStatus)} ${b.transactionReference?`<br><small>Reference: ${safe(b.transactionReference)}</small>`:''}${b.paymentSlipUrl?`<br><a href="${safe(b.paymentSlipUrl)}" target="_blank">View submitted receipt</a>`:''}</div><div class="booking-actions">${b.status==='PENDING_PAYMENT'?`<label class="btn btn-dark compact-file">Upload slip<input type="file" accept="image/*,.pdf" onchange="paySlip(${b.id},this)"></label><button class="btn btn-primary" onclick="payCard(${b.id})">Demo card payment</button>`:''}${!['CONFIRMED','CANCELLED','REJECTED'].includes(b.status)?`<button class="btn btn-outline" onclick="cancelBooking(${b.id})">Cancel request</button>`:''}</div></div>${b.adminNote?`<div class="notice"><strong>Admin note:</strong> ${safe(b.adminNote)}</div>`:''}</article>`).join('');}catch(e){if(e.status===401){setCurrentUser(null);location.replace('login.html?reason=login-required&return=bookings.html');return;}msg.className='notice error';msg.textContent=e.message;}}
+    async function paySlip(id,input){const file=input.files[0];if(!file)return;try{await SerendibApi.bookings.uploadSlip(id,file);await loadBookings();}catch(e){alert(e.message);}}
+    async function payCard(id){if(!confirm('This is the local demo payment gateway. No real card is charged. Continue?'))return;try{await SerendibApi.bookings.cardDemo(id);await loadBookings();}catch(e){alert(e.message);}}
+    async function cancelBooking(id){if(!confirm('Cancel this booking request?'))return;try{await SerendibApi.bookings.cancel(id);await loadBookings();}catch(e){alert(e.message);}}
+    loadBookings();
+</script></body>
+</html>

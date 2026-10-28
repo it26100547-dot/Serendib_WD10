@@ -1,0 +1,27 @@
+package com.serendib.service;
+
+import com.serendib.model.Hotel;
+import com.serendib.repository.HotelRepository;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class HotelService {
+    private final HotelRepository repository;
+    public HotelService(HotelRepository repository) { this.repository = repository; }
+
+    public List<Hotel> getAll() { return repository.findAll(); }
+    public Hotel getById(Long id) { return repository.findById(id); }
+    public List<Hotel> getByDestination(String destination) { return repository.findByDestination(destination); }
+    public List<Hotel> getByMaxPrice(double maxPrice) { return repository.findByMaxPrice(maxPrice); }
+    public long count() { return repository.count(); }
+
+    public Hotel create(Hotel hotel) { hotel.setId(null); validate(hotel); return repository.save(hotel); }
+
+
+
+    private void validate(Hotel hotel) {
+        if (hotel.getName() == null || hotel.getName().isBlank()) throw new IllegalArgumentException("Hotel name is required.");
+        if (hotel.getFromPrice() < 0) throw new IllegalArgumentException("Hotel price cannot be negative.");
+    }
+}

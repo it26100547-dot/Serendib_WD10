@@ -1,0 +1,49 @@
+[ {
+  "id" : 1,
+  "active" : true,
+  "createdAt" : "2026-10-05 13:52:17",
+  "updatedAt" : "2026-10-05 13:52:17",
+  "firstName" : "Admin",
+  "lastName" : "User",
+  "email" : "admin@serendib.com",
+  "password" : "admin123",
+  "phone" : "+94 77 000 0001",
+  "country" : "Sri Lanka",
+  "role" : "ADMIN"
+}, {
+  "id" : 3,
+  "active" : true,
+  "createdAt" : "2026-10-05 13:52:17",
+  "updatedAt" : "2026-10-05 13:52:17",
+  "firstName" : "Kasun",
+  "lastName" : "Silva",
+  "email" : "kasun@example.com",
+  "password" : "password123",
+  "phone" : "+94 71 555 1234",
+  "country" : "Sri Lanka",
+  "role" : "TRAVELER"
+}, {
+  "id" : 4,
+  "active" : true,
+  "createdAt" : "2026-10-11 10:03:58",
+  "updatedAt" : "2026-10-11 10:03:58",
+  "firstName" : "Demo",
+  "lastName" : "Traveler",
+  "email" : "traveler@example.com",
+  "password" : "traveler123",
+  "phone" : "+94 77 000 0002",
+  "country" : "Sri Lanka",
+  "role" : "TRAVELER"
+}, {
+  "id" : 5,
+  "active" : true,
+  "createdAt" : "2026-10-11 10:03:58",
+  "updatedAt" : "2026-10-11 10:03:58",
+  "firstName" : "adwdawd",
+  "lastName" : "",
+  "email" : "dawdawd@gmail.com",
+  "password" : "password123",
+  "phone" : "",
+  "country" : "",
+  "role" : "TRAVELER"
+} ]

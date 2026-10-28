@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Profile | Serendib</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="global-video-page">
+<!-- Global cinematic background video -->
+<video class="global-bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="BACKGROUND.MP4" type="video/mp4">
+</video>
+<div class="global-bg-overlay" aria-hidden="true"></div>
+<div id="siteHeader"></div>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <span class="eyebrow">My account</span>
+            <h1>Traveler Profile</h1>
+            <p>Manage your account credentials, security settings, and password updates backed by users.txt in the Notepad NoSQL storage.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container detail-grid">
+            <div>
+                <!-- Profile Information Panel -->
+                <div class="panel">
+                    <h2>Profile Information</h2>
+                    <form class="form-grid" id="profileForm">
+                        <div class="field">
+                            <label>FIRST NAME</label>
+                            <input id="profFirstName" value="Demo">
+                        </div>
+                        <div class="field">
+                            <label>LAST NAME</label>
+                            <input id="profLastName" value="Traveler">
+                        </div>
+                        <div class="field full">
+                            <label>EMAIL</label>
+                            <input id="profEmail" value="traveler@example.com" readonly style="opacity:0.8">
+                        </div>
+                        <div class="field">
+                            <label>PHONE</label>
+                            <input id="profPhone" value="+94 77 123 4567">
+                        </div>
+                        <div class="field">
+                            <label>COUNTRY</label>
+                            <input id="profCountry" value="Sri Lanka">
+                        </div>
+                        <div class="full">
+                            <button class="btn btn-primary" type="submit">Save Profile</button>
+                        </div>
+                    </form>
+                    <div class="notice" id="profileMsg" style="display:none;margin-top:12px"></div>
+                </div>
+
+                <!-- Requirement 6: Edit / Change Password Panel -->
+                <div class="panel" style="margin-top:24px">
+                    <h2>Edit Password</h2>
+                    <p style="font-size:13px;color:#aaa;margin-bottom:15px">Update your login password. Changes will be saved directly into users.txt.</p>
+                    <form class="form-grid" id="changePasswordForm">
+                        <div class="field full">
+                            <label>CURRENT PASSWORD</label>
+                            <input id="currentPassword" type="password" required placeholder="Enter current password">
+                        </div>
+                        <div class="field">
+                            <label>NEW PASSWORD</label>
+                            <input id="newPassword" type="password" required placeholder="Minimum 4 characters">
+                        </div>
+                        <div class="field">
+                            <label>CONFIRM NEW PASSWORD</label>
+                            <input id="confirmPassword" type="password" required placeholder="Re-enter new password">
+                        </div>
+                        <div class="full">
+                            <button class="btn btn-primary" type="submit">Update Password</button>
+                        </div>
+                    </form>
+                    <div class="notice" id="pwdMsg" style="display:none;margin-top:12px"></div>
+                </div>
+            </div>
+
+            <aside>
+                <div class="panel sticky">
+                    <h3>Account Menu</h3>
+                    <div style="margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.1)">
+                        <div style="font-weight:700;font-size:16px" id="userDisplayName">Demo Traveler</div>
+                        <div style="font-size:13px;color:#aaa" id="userDisplayEmail">traveler@example.com</div>
+                        <div style="display:inline-block;font-size:11px;background:#34a853;color:#fff;padding:2px 8px;border-radius:4px;margin-top:6px" id="userDisplayRole">TRAVELER</div>
+                    </div>
+                    <a class="btn btn-dark" style="width:100%;margin-bottom:10px" href="bookings.html">My Bookings</a>
+                    <a class="btn btn-primary" style="width:100%;margin-bottom:10px" href="admin/dashboard.html" id="adminPortalBtn" hidden>Admin Panel</a>
+                    <button class="btn btn-outline" style="width:100%" id="logoutBtn" type="button">Logout</button>
+                </div>
+            </aside>
+        </div>
+    </section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+<script>
+    let profileUser = null;
+
+    function fillProfile(user) {
+        profileUser = user;
+        setCurrentUser(user);
+        document.getElementById('profFirstName').value = user.firstName || '';
+        document.getElementById('profLastName').value = user.lastName || '';
+        document.getElementById('profEmail').value = user.email || '';
+        document.getElementById('profPhone').value = user.phone || '';
+        document.getElementById('profCountry').value = user.country || 'Sri Lanka';
+        document.getElementById('userDisplayName').textContent = `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Traveler';
+        document.getElementById('userDisplayEmail').textContent = user.email || '';
+        document.getElementById('userDisplayRole').textContent = user.role || 'TRAVELER';
+        document.getElementById('adminPortalBtn').hidden = String(user.role || '').toUpperCase() !== 'ADMIN';
+    }
+
+    (async function loadProfile() {
+        try {
+            const res = await SerendibApi.auth.me();
+            fillProfile(res.data);
+        } catch (err) {
+            setCurrentUser(null);
+            location.replace('login.html?reason=login-required');
+        }
+    })();
+
+    document.getElementById('profileForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const msg = document.getElementById('profileMsg');
+        msg.style.display = 'block';
+        msg.className = 'notice';
+        msg.textContent = 'Saving profile...';
+        try {
+            const res = await SerendibApi.auth.updateProfile({
+                firstName: document.getElementById('profFirstName').value.trim(),
+                lastName: document.getElementById('profLastName').value.trim(),
+                phone: document.getElementById('profPhone').value.trim(),
+                country: document.getElementById('profCountry').value.trim()
+            });
+            fillProfile(res.data);
+            msg.className = 'notice success';
+            msg.textContent = res.message || 'Profile details updated.';
+        } catch (err) {
+            msg.className = 'notice error';
+            msg.textContent = err.message || 'Could not update profile.';
+        }
+    });
+
+    document.getElementById('changePasswordForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const msg = document.getElementById('pwdMsg');
+        msg.style.display = 'block';
+        const curr = document.getElementById('currentPassword').value;
+        const next = document.getElementById('newPassword').value;
+        const conf = document.getElementById('confirmPassword').value;
+        if (next !== conf) { msg.className = 'notice error'; msg.textContent = 'New passwords do not match.'; return; }
+        if (next.length < 4) { msg.className = 'notice error'; msg.textContent = 'New password must be at least 4 characters.'; return; }
+        try {
+            const res = await SerendibApi.auth.changePassword(profileUser?.email, curr, next);
+            msg.className = 'notice success';
+            msg.textContent = res.message || 'Password updated.';
+            this.reset();
+        } catch (err) {
+            msg.className = 'notice error';
+            msg.textContent = err.message || 'Failed to update password.';
+        }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => logoutUser('login.html?loggedOut=1'));
+</script>
+</body>
+</html>

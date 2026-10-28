@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Destination Details | Serendib</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><link rel="stylesheet" href="css/style.css">
+</head>
+<body class="global-video-page">
+    <video class="global-bg-video" autoplay muted loop playsinline aria-hidden="true"><source src="DESTINATION.mp4" type="video/mp4"></video>
+    <div class="global-bg-overlay">
+    </div>
+    <div id="siteHeader">
+    </div>
+    <main id="detailRoot">
+        <section class="section">
+            <div class="container">
+                <div class="notice">Loading destination...</div>
+            </div>
+        </section>
+    </main>
+    <div id="siteFooter">
+    </div><script src="js/data.js"></script><script src="js/api.js"></script><script src="js/app.js"></script><script>
+    const safe=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    async function loadDestination(){const id=qs('id');let d,hotels=[],vehicles=[];try{const [dr,hr,vr]=await Promise.all([SerendibApi.destinations.getById(id),SerendibApi.hotels.getAll(),SerendibApi.transport.getAll()]);d=dr.data;hotels=hr.data||[];vehicles=vr.data||[];}catch(e){d=DATA.destinations.find(x=>x.id==id)||DATA.destinations[0];hotels=DATA.hotels||[];vehicles=DATA.vehicles||[];}if(!d)return;document.title=`${d.name} | Serendib`;const imgs=[d.image,...(d.images||[])].filter(Boolean).filter((x,i,a)=>a.indexOf(x)===i).slice(0,5);while(imgs.length<3)imgs.push(imgs[0]||'assets/images/hero-sigiriya-gardens.jpg');const places=(d.places&&d.places.length?d.places:(d.attractions||[]).map(a=>({name:a,description:`Explore ${a} while visiting ${d.name}.`,image:d.image,category:'Attraction'})));let recHotels=(d.recommendedHotelIds||[]).map(id=>hotels.find(h=>h.id==id)).filter(Boolean);if(!recHotels.length)recHotels=hotels.filter(h=>String(d.name).toLowerCase().split(/[&]/)[0].trim().includes(String(h.destination||'').toLowerCase())||String(h.destination||'').toLowerCase().includes(String(d.name).toLowerCase().split(/[&]/)[0].trim())).slice(0,3);if(!recHotels.length)recHotels=hotels.slice(0,3);let recVehicles=(d.recommendedTransportIds||[]).map(id=>vehicles.find(v=>v.id==id)).filter(Boolean);if(!recVehicles.length)recVehicles=vehicles.filter(v=>String(v.status||'').toLowerCase()==='available').slice(0,3);document.getElementById('detailRoot').innerHTML=`
+    <section class="detail-hero"><div class="detail-gallery">${imgs.map((im,i)=>`<img class="${i===0?'main':''}" src="${safe(im)}" alt="${safe(d.name)}">`).join('')}</div><div class="detail-summary"><span class="eyebrow">${safe(d.region||'Sri Lanka')} · ${safe(d.category||'Destination')}</span><h1>${safe(d.name)}</h1><p>${safe(d.description||d.summary||'')}</p><div class="summary-box"><div class="summary-item"><span>REGION</span><strong>${safe(d.region||'-')}</strong></div><div class="summary-item"><span>PLACES</span><strong>${places.length}</strong></div><div class="summary-item"><span>BEST TIME</span><strong>${safe(d.bestTime||'Year-round')}</strong></div><div class="summary-item"><span>SUGGESTED STAY</span><strong>${safe(d.suggestedDays||2)} days</strong></div></div></div></section>
+    <section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">Admin-managed recommendations</span><h2>Places to explore</h2></div></div><div class="cards">${places.map((p,i)=>`<article class="card"><div class="card-media"><img src="${safe(p.image||d.image)}" alt="${safe(p.name)}"><span class="badge">${safe(p.category||`Stop ${i+1}`)}</span></div><div class="card-body"><h3>${safe(p.name)}</h3><p>${safe(p.description||'')}</p></div></article>`).join('')}</div></div></section>
+    <section class="section alt"><div class="container"><div class="section-head"><div><span class="eyebrow">Stay nearby</span><h2>Recommended Hotels</h2></div><a class="btn btn-dark" href="hotels.html">All hotels</a></div><div class="cards">${recHotels.map(h=>hotelCard(h)).join('')||'<p>No hotel recommendations added.</p>'}</div></div></section>
+    <section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">Get there comfortably</span><h2>Recommended Transport</h2></div><a class="btn btn-dark" href="transport.html">All vehicles</a></div><div class="cards">${recVehicles.map(v=>vehicleCard(v)).join('')||'<p>No transport recommendations added.</p>'}</div></div></section>
+    <section class="section alt"><div class="container"><div class="panel"><h2>Travel tips</h2><p>${safe(d.travelTips||'Choose a hotel and vehicle above, then use their booking page to submit a payment receipt or the demo card payment. The administrator confirms each request.')}</p></div></div></section>`;}
+    loadDestination();
+</script></body>
+</html>

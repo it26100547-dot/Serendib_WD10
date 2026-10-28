@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Register | Serendib</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="global-video-page">
+<!-- Global cinematic background video -->
+<video class="global-bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="BACKGROUND.MP4" type="video/mp4">
+</video>
+<div class="global-bg-overlay" aria-hidden="true"></div>
+<div id="siteHeader"></div>
+<main class="auth-wrap">
+    <section class="auth-art">
+        <div>
+            <span class="eyebrow">Join Serendib</span>
+            <h1>Save trips, bookings and wishlists.</h1>
+        </div>
+    </section>
+    <section class="auth-form">
+        <form class="form-card" id="registerForm">
+            <h2>Create account</h2>
+            <p>User registration powered by Java Spring Boot backend &amp; users.txt Notepad NoSQL storage.</p>
+            <div class="form-grid">
+                <div class="field">
+                    <label>FIRST NAME</label>
+                    <input id="regFirstName" required placeholder="John">
+                </div>
+                <div class="field">
+                    <label>LAST NAME</label>
+                    <input id="regLastName" required placeholder="Doe">
+                </div>
+                <div class="field full">
+                    <label>EMAIL</label>
+                    <input id="regEmail" type="email" required placeholder="john@example.com">
+                </div>
+                <div class="field">
+                    <label>PHONE</label>
+                    <input id="regPhone" placeholder="+94 77 123 4567">
+                </div>
+                <div class="field">
+                    <label>COUNTRY</label>
+                    <input id="regCountry" value="Sri Lanka">
+                </div>
+                <div class="field full">
+                    <label>PASSWORD</label>
+                    <input id="regPassword" type="password" required placeholder="Minimum 4 characters">
+                </div>
+            </div>
+            <button class="btn btn-primary" style="width:100%;margin-top:18px">Register</button>
+            <div id="regMessage" class="notice" style="display:none;margin-top:14px"></div>
+            <div class="auth-links" style="margin-top:16px;text-align:center">
+                Already have an account? <a href="login.html">Sign In</a>
+            </div>
+        </form>
+    </section>
+</main>
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+<script>
+    document.getElementById('registerForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const msg = document.getElementById('regMessage');
+        msg.style.display = 'block';
+        msg.className = 'notice';
+        msg.textContent = 'Registering account...';
+
+        const payload = {
+            firstName: document.getElementById('regFirstName').value.trim(),
+            lastName: document.getElementById('regLastName').value.trim(),
+            email: document.getElementById('regEmail').value.trim(),
+            phone: document.getElementById('regPhone').value.trim(),
+            country: document.getElementById('regCountry').value.trim() || 'Sri Lanka',
+            password: document.getElementById('regPassword').value
+        };
+
+        try {
+            const res = await SerendibApi.auth.register(payload);
+            if (res && res.success) {
+                msg.className = 'notice success';
+                msg.textContent = res.message || 'Registration successful! Redirecting to login...';
+                setTimeout(() => { location.href = 'login.html'; }, 1200);
+            } else {
+                msg.className = 'notice error';
+                msg.textContent = res.message || 'Registration failed.';
+            }
+        } catch (err) {
+            msg.className = 'notice error';
+            msg.textContent = err.message || 'Error communicating with backend.';
+        }
+    });
+</script>
+</body>
+</html>

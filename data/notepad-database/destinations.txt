@@ -1,0 +1,691 @@
+
+[
+  {
+    "id": 1,
+    "active": true,
+    "createdAt": "2026-10-05 10:57:40",
+    "updatedAt": "2026-10-05 10:57:40",
+    "name": "Kandy",
+    "category": "Culture & Hills",
+    "summary": "Sacred heritage, lakes, gardens and mountain gateways.",
+    "description": null,
+    "image": "https://as1.ftcdn.net/v2/jpg/03/64/95/12/1000_F_364951258_xLzCW41kr5AV7OXdVv49ufv6u0XL3nqq.jpg",
+    "featured": true,
+    "region": "Central",
+    "attractions": [
+      "Temple of the Sacred Tooth Relic",
+      "Kandy Lake",
+      "Bahirawakanda Buddha Statue",
+      "Royal Botanical Gardens, Peradeniya",
+      "Udawatta Kele Sanctuary",
+      "Kandy View Point",
+      "Embekke Devalaya",
+      "Lankatilaka Temple",
+      "Gadaladeniya Temple",
+      "Ambuluwawa Tower",
+      "Knuckles Mountain Range",
+      "Hanthana Mountain Range"
+    ],
+    "attractionCount": 12,
+    "itemType": "DESTINATION",
+    "cardSubtitle": "Central Region",
+    "cardPriceFormatted": "12 attractions",
+    "cardTitle": "Kandy",
+    "cardCategory": "Culture & Hills",
+    "cardImage": "",
+    "images": [""],
+    "bestTime": "Year-round",
+    "suggestedDays": 2,
+    "travelTips": "Allow enough time to explore Kandy and confirm transport before the travel date.",
+    "places": [
+      {
+        "name": "Temple of the Sacred Tooth Relic",
+        "description": "A recommended place to explore while visiting Kandy.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Kandy Lake",
+        "description": "A recommended place to explore while visiting Kandy.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Bahirawakanda Buddha Statue",
+        "description": "A recommended place to explore while visiting Kandy.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Royal Botanical Gardens, Peradeniya",
+        "description": "A recommended place to explore while visiting Kandy.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Udawatta Kele Sanctuary",
+        "description": "A recommended place to explore while visiting Kandy.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Kandy View Point",
+        "description": "A recommended place to explore while visiting Kandy.",
+        "image": "",
+        "category": "Attraction"
+      }
+    ],
+    "recommendedHotelIds": [],
+    "recommendedTransportIds": [1, 2, 4]
+  },
+  {
+    "id": 2,
+    "active": true,
+    "createdAt": "2026-10-05 10:57:40",
+    "updatedAt": "2026-10-05 10:57:40",
+    "name": "Anuradhapura",
+    "category": "Ancient",
+    "summary": "Ancient sacred city, stupas and monastic ruins.",
+    "description": null,
+    "image": "",
+    "featured": true,
+    "region": "North Central",
+    "attractions": [
+      "Sri Maha Bodhi",
+      "Ruwanwelisaya",
+      "Jetavanaramaya",
+      "Abhayagiri Stupa",
+      "Thuparamaya",
+      "Isurumuniya Temple",
+      "Samadhi Buddha Statue",
+      "Twin Ponds",
+      "Mihintale",
+      "Aukana Buddha Statue"
+    ],
+    "attractionCount": 10,
+    "itemType": "DESTINATION",
+    "cardSubtitle": "North Central Region",
+    "cardPriceFormatted": "10 attractions",
+    "cardTitle": "Anuradhapura",
+    "cardCategory": "Ancient",
+    "cardImage": "",
+    "images": [""],
+    "bestTime": "Year-round",
+    "suggestedDays": 2,
+    "travelTips": "Allow enough time to explore Anuradhapura and confirm transport before the travel date.",
+    "places": [
+      {
+        "name": "Sri Maha Bodhi",
+        "description": "A recommended place to explore while visiting Anuradhapura.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Ruwanwelisaya",
+        "description": "A recommended place to explore while visiting Anuradhapura.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Jetavanaramaya",
+        "description": "A recommended place to explore while visiting Anuradhapura.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Abhayagiri Stupa",
+        "description": "A recommended place to explore while visiting Anuradhapura.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Thuparamaya",
+        "description": "A recommended place to explore while visiting Anuradhapura.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Isurumuniya Temple",
+        "description": "A recommended place to explore while visiting Anuradhapura.",
+        "image": "",
+        "category": "Attraction"
+      }
+    ],
+    "recommendedHotelIds": [],
+    "recommendedTransportIds": [1, 2, 4]
+  },
+  {
+    "id": 3,
+    "active": true,
+    "createdAt": "2026-10-05 10:57:40",
+    "updatedAt": "2026-10-05 10:57:40",
+    "name": "Polonnaruwa",
+    "category": "Ancient",
+    "summary": "Royal ruins, stone sculpture and great reservoirs.",
+    "description": null,
+    "image": "",
+    "featured": false,
+    "region": "North Central",
+    "attractions": [
+      "Polonnaruwa Ancient City",
+      "Vatadage",
+      "Gal Vihara",
+      "Rankoth Vehera",
+      "Lankatilaka Image House",
+      "Parakrama Samudra",
+      "Royal Palace",
+      "Sacred Quadrangle",
+      "Pothgul Vihara"
+    ],
+    "attractionCount": 9,
+    "itemType": "DESTINATION",
+    "cardSubtitle": "North Central Region",
+    "cardPriceFormatted": "9 attractions",
+    "cardTitle": "Polonnaruwa",
+    "cardCategory": "Ancient",
+    "cardImage": "",
+    "images": [""],
+    "bestTime": "Year-round",
+    "suggestedDays": 2,
+    "travelTips": "Allow enough time to explore Polonnaruwa and confirm transport before the travel date.",
+    "places": [
+      {
+        "name": "Polonnaruwa Ancient City",
+        "description": "A recommended place to explore while visiting Polonnaruwa.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Vatadage",
+        "description": "A recommended place to explore while visiting Polonnaruwa.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Gal Vihara",
+        "description": "A recommended place to explore while visiting Polonnaruwa.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Rankoth Vehera",
+        "description": "A recommended place to explore while visiting Polonnaruwa.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Lankatilaka Image House",
+        "description": "A recommended place to explore while visiting Polonnaruwa.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Parakrama Samudra",
+        "description": "A recommended place to explore while visiting Polonnaruwa.",
+        "image": "",
+        "category": "Attraction"
+      }
+    ],
+    "recommendedHotelIds": [],
+    "recommendedTransportIds": [1, 2, 4]
+  },
+  {
+    "id": 4,
+    "active": true,
+    "createdAt": "2026-10-05 10:57:40",
+    "updatedAt": "2026-10-05 10:57:40",
+    "name": "Sigiriya & Dambulla",
+    "category": "Heritage",
+    "summary": "Rock fortress, caves, gardens and ancient art.",
+    "description": null,
+    "image": "",
+    "featured": true,
+    "region": "Central",
+    "attractions": [
+      "Sigiriya Lion Rock",
+      "Pidurangala Rock",
+      "Sigiriya Water Gardens",
+      "Sigiriya Frescoes",
+      "Dambulla Cave Temple",
+      "Dambulla Golden Temple",
+      "Ibbankatuwa Megalithic Tombs",
+      "Nalanda Gedige"
+    ],
+    "attractionCount": 8,
+    "itemType": "DESTINATION",
+    "cardSubtitle": "Central Region",
+    "cardPriceFormatted": "8 attractions",
+    "cardTitle": "Sigiriya & Dambulla",
+    "cardCategory": "Heritage",
+    "cardImage": "",
+    "images": [""],
+    "bestTime": "Year-round",
+    "suggestedDays": 2,
+    "travelTips": "Allow enough time to explore Sigiriya & Dambulla and confirm transport before the travel date.",
+    "places": [
+      {
+        "name": "Sigiriya Lion Rock",
+        "description": "A recommended place to explore while visiting Sigiriya & Dambulla.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Pidurangala Rock",
+        "description": "A recommended place to explore while visiting Sigiriya & Dambulla.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Sigiriya Water Gardens",
+        "description": "A recommended place to explore while visiting Sigiriya & Dambulla.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Sigiriya Frescoes",
+        "description": "A recommended place to explore while visiting Sigiriya & Dambulla.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Dambulla Cave Temple",
+        "description": "A recommended place to explore while visiting Sigiriya & Dambulla.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Dambulla Golden Temple",
+        "description": "A recommended place to explore while visiting Sigiriya & Dambulla.",
+        "image": "",
+        "category": "Attraction"
+      }
+    ],
+    "recommendedHotelIds": [],
+    "recommendedTransportIds": [1, 2, 4]
+  },
+  {
+    "id": 5,
+    "active": true,
+    "createdAt": "2026-10-05 10:57:40",
+    "updatedAt": "2026-10-05 10:57:40",
+    "name": "Nuwara Eliya",
+    "category": "Hill Country",
+    "summary": "Tea estates, waterfalls and cool mountain landscapes.",
+    "description": null,
+    "image": "",
+    "featured": true,
+    "region": "Central Highlands",
+    "attractions": [
+      "Gregory Lake",
+      "Victoria Park",
+      "Pedro Tea Estate",
+      "Moon Plains",
+      "Hakgala Botanical Garden",
+      "Single Tree Hill",
+      "Horton Plains",
+      "World’s End",
+      "Baker’s Falls",
+      "Ramboda Falls",
+      "Devon Falls",
+      "St. Clair’s Falls"
+    ],
+    "attractionCount": 12,
+    "itemType": "DESTINATION",
+    "cardSubtitle": "Central Highlands Region",
+    "cardPriceFormatted": "12 attractions",
+    "cardTitle": "Nuwara Eliya",
+    "cardCategory": "Hill Country",
+    "cardImage": "",
+    "images": [""],
+    "bestTime": "Year-round",
+    "suggestedDays": 2,
+    "travelTips": "Allow enough time to explore Nuwara Eliya and confirm transport before the travel date.",
+    "places": [
+      {
+        "name": "Gregory Lake",
+        "description": "A recommended place to explore while visiting Nuwara Eliya.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Victoria Park",
+        "description": "A recommended place to explore while visiting Nuwara Eliya.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Pedro Tea Estate",
+        "description": "A recommended place to explore while visiting Nuwara Eliya.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Moon Plains",
+        "description": "A recommended place to explore while visiting Nuwara Eliya.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Hakgala Botanical Garden",
+        "description": "A recommended place to explore while visiting Nuwara Eliya.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Single Tree Hill",
+        "description": "A recommended place to explore while visiting Nuwara Eliya.",
+        "image": "",
+        "category": "Attraction"
+      }
+    ],
+    "recommendedHotelIds": [],
+    "recommendedTransportIds": [1, 2, 4]
+  },
+  {
+    "id": 6,
+    "active": true,
+    "createdAt": "2026-10-05 10:57:40",
+    "updatedAt": "2026-10-05 10:57:40",
+    "name": "Ella",
+    "category": "Adventure",
+    "summary": "Railway icons, hiking trails, waterfalls and tea views.",
+    "description": null,
+    "image": "",
+    "featured": true,
+    "region": "Uva",
+    "attractions": [
+      "Ella Rock",
+      "Little Adam’s Peak",
+      "Nine Arch Bridge",
+      "Ravana Falls",
+      "Ravana Cave",
+      "Ella Gap",
+      "Demodara Railway Station",
+      "Lipton’s Seat",
+      "Diyaluma Falls",
+      "Uva tea estates"
+    ],
+    "attractionCount": 10,
+    "itemType": "DESTINATION",
+    "cardSubtitle": "Uva Region",
+    "cardPriceFormatted": "10 attractions",
+    "cardTitle": "Ella",
+    "cardCategory": "Adventure",
+    "cardImage": "",
+    "images": [""],
+    "bestTime": "Year-round",
+    "suggestedDays": 2,
+    "travelTips": "Allow enough time to explore Ella and confirm transport before the travel date.",
+    "places": [
+      {
+        "name": "Ella Rock",
+        "description": "A recommended place to explore while visiting Ella.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Little Adam’s Peak",
+        "description": "A recommended place to explore while visiting Ella.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Nine Arch Bridge",
+        "description": "A recommended place to explore while visiting Ella.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Ravana Falls",
+        "description": "A recommended place to explore while visiting Ella.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Ravana Cave",
+        "description": "A recommended place to explore while visiting Ella.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Ella Gap",
+        "description": "A recommended place to explore while visiting Ella.",
+        "image": "",
+        "category": "Attraction"
+      }
+    ],
+    "recommendedHotelIds": [],
+    "recommendedTransportIds": [1, 2, 4]
+  },
+  {
+    "id": 7,
+    "active": true,
+    "createdAt": "2026-10-05 10:57:40",
+    "updatedAt": "2026-10-05 10:57:40",
+    "name": "Galle & South Coast",
+    "category": "Beach & Heritage",
+    "summary": "Colonial fort, tropical beaches and ocean experiences.",
+    "description": null,
+    "image": "",
+    "featured": true,
+    "region": "Southern",
+    "attractions": [
+      "Galle Dutch Fort",
+      "Galle Lighthouse",
+      "Jungle Beach",
+      "Unawatuna",
+      "Dalawella Beach",
+      "Japanese Peace Pagoda",
+      "Mirissa Beach",
+      "Coconut Tree Hill",
+      "Whale Watching",
+      "Weligama Beach",
+      "Tangalle Beach",
+      "Hiriketiya"
+    ],
+    "attractionCount": 12,
+    "itemType": "DESTINATION",
+    "cardSubtitle": "Southern Region",
+    "cardPriceFormatted": "12 attractions",
+    "cardTitle": "Galle & South Coast",
+    "cardCategory": "Beach & Heritage",
+    "cardImage": "",
+    "images": [""],
+    "bestTime": "Year-round",
+    "suggestedDays": 2,
+    "travelTips": "Allow enough time to explore Galle & South Coast and confirm transport before the travel date.",
+    "places": [
+      {
+        "name": "Galle Dutch Fort",
+        "description": "A recommended place to explore while visiting Galle & South Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Galle Lighthouse",
+        "description": "A recommended place to explore while visiting Galle & South Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Jungle Beach",
+        "description": "A recommended place to explore while visiting Galle & South Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Unawatuna",
+        "description": "A recommended place to explore while visiting Galle & South Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Dalawella Beach",
+        "description": "A recommended place to explore while visiting Galle & South Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Japanese Peace Pagoda",
+        "description": "A recommended place to explore while visiting Galle & South Coast.",
+        "image": "",
+        "category": "Attraction"
+      }
+    ],
+    "recommendedHotelIds": [],
+    "recommendedTransportIds": [1, 2, 4]
+  },
+  {
+    "id": 8,
+    "active": true,
+    "createdAt": "2026-10-05 10:57:40",
+    "updatedAt": "2026-10-05 10:57:40",
+    "name": "Trincomalee & East Coast",
+    "category": "Beach",
+    "summary": "Clear water, temples, islands and surf beaches.",
+    "description": null,
+    "image": "",
+    "featured": false,
+    "region": "Eastern",
+    "attractions": [
+      "Koneswaram Temple",
+      "Fort Frederick",
+      "Nilaveli Beach",
+      "Pigeon Island",
+      "Uppuveli Beach",
+      "Marble Beach",
+      "Kanniya Hot Springs",
+      "Arugam Bay",
+      "Whiskey Point",
+      "Elephant Rock",
+      "Pasikuda Beach"
+    ],
+    "attractionCount": 11,
+    "itemType": "DESTINATION",
+    "cardSubtitle": "Eastern Region",
+    "cardPriceFormatted": "11 attractions",
+    "cardTitle": "Trincomalee & East Coast",
+    "cardCategory": "Beach",
+    "cardImage": "",
+    "images": [""],
+    "bestTime": "Year-round",
+    "suggestedDays": 2,
+    "travelTips": "Allow enough time to explore Trincomalee & East Coast and confirm transport before the travel date.",
+    "places": [
+      {
+        "name": "Koneswaram Temple",
+        "description": "A recommended place to explore while visiting Trincomalee & East Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Fort Frederick",
+        "description": "A recommended place to explore while visiting Trincomalee & East Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Nilaveli Beach",
+        "description": "A recommended place to explore while visiting Trincomalee & East Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Pigeon Island",
+        "description": "A recommended place to explore while visiting Trincomalee & East Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Uppuveli Beach",
+        "description": "A recommended place to explore while visiting Trincomalee & East Coast.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Marble Beach",
+        "description": "A recommended place to explore while visiting Trincomalee & East Coast.",
+        "image": "",
+        "category": "Attraction"
+      }
+    ],
+    "recommendedHotelIds": [],
+    "recommendedTransportIds": [1, 2, 4]
+  },
+  {
+    "id": 9,
+    "active": true,
+    "createdAt": "2026-10-05 10:57:40",
+    "updatedAt": "2026-10-05 10:57:40",
+    "name": "Jaffna & North",
+    "category": "Culture",
+    "summary": "Northern temples, islands, forts and unique culture.",
+    "description": null,
+    "image": "",
+    "featured": false,
+    "region": "Northern",
+    "attractions": [
+      "Jaffna Fort",
+      "Nallur Kandaswamy Kovil",
+      "Jaffna Public Library",
+      "Nainativu",
+      "Casuarina Beach",
+      "Keerimalai Springs",
+      "Delft Island",
+      "Point Pedro",
+      "Mannar Fort",
+      "Madhu Church"
+    ],
+    "attractionCount": 10,
+    "itemType": "DESTINATION",
+    "cardSubtitle": "Northern Region",
+    "cardPriceFormatted": "10 attractions",
+    "cardTitle": "Jaffna & North",
+    "cardCategory": "Culture",
+    "cardImage": "",
+    "images": [""],
+    "bestTime": "Year-round",
+    "suggestedDays": 2,
+    "travelTips": "Allow enough time to explore Jaffna & North and confirm transport before the travel date.",
+    "places": [
+      {
+        "name": "Jaffna Fort",
+        "description": "A recommended place to explore while visiting Jaffna & North.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Nallur Kandaswamy Kovil",
+        "description": "A recommended place to explore while visiting Jaffna & North.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Jaffna Public Library",
+        "description": "A recommended place to explore while visiting Jaffna & North.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Nainativu",
+        "description": "A recommended place to explore while visiting Jaffna & North.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Casuarina Beach",
+        "description": "A recommended place to explore while visiting Jaffna & North.",
+        "image": "",
+        "category": "Attraction"
+      },
+      {
+        "name": "Keerimalai Springs",
+        "description": "A recommended place to explore while visiting Jaffna & North.",
+        "image": "",
+        "category": "Attraction"
+      }
+    ],
+    "recommendedHotelIds": [],
+    "recommendedTransportIds": [1, 2, 4]
+  }
+]

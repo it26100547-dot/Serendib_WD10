@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tour Packages | Serendib</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+    >
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+
+<body class="global-video-page">
+
+<!-- Global cinematic background video -->
+<video
+        class="global-bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+>
+    <source src="V2.mp4" type="video/mp4">
+    <source src="/V2.mp4" type="video/mp4">
+</video>
+
+<div class="global-bg-overlay" aria-hidden="true"></div>
+
+<div id="siteHeader"></div>
+
+<main>
+
+    <section class="page-hero">
+        <div class="container">
+                <span class="eyebrow">
+                    Complete Sri Lankan journeys
+                </span>
+
+            <h1>Tour Packages</h1>
+
+            <p>
+                Book a complete multi-destination journey and receive
+                package pricing instead of arranging every part separately.
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="filter-bar">
+
+            <div class="field">
+                <label>SEARCH PACKAGE</label>
+
+                <input
+                        id="search"
+                        placeholder="Secret Udrata, Ancient Ceylon..."
+                >
+            </div>
+
+            <div class="field">
+                <label>CATEGORY</label>
+
+                <select id="cat">
+                    <option value="">All</option>
+                    <option>Hill Country</option>
+                    <option>Culture</option>
+                    <option>Beach</option>
+                    <option>Wildlife</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>MAX PRICE</label>
+
+                <select id="price">
+                    <option value="9999">Any</option>
+                    <option value="600">$600</option>
+                    <option value="750">$750</option>
+                    <option value="850">$850</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>DURATION</label>
+
+                <select id="days">
+                    <option value="99">Any</option>
+                    <option value="5">Up to 5 days</option>
+                    <option value="6">Up to 6 days</option>
+                    <option value="7">Up to 7 days</option>
+                </select>
+            </div>
+
+            <button
+                    class="btn btn-primary"
+                    id="filterBtn"
+            >
+                FILTER
+            </button>
+
+        </div>
+
+    </div>
+
+    <section class="section">
+        <div class="container">
+
+            <div
+                    class="cards"
+                    id="packageList"
+            ></div>
+
+        </div>
+    </section>
+
+</main>
+
+<div id="siteFooter"></div>
+
+<script src="js/data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+    let currentPackages = DATA.packages;
+
+    function renderPackages(list) {
+        document.getElementById("packageList").innerHTML =
+            list.map(packageCard).join("");
+        wireWishlist();
+    }
+
+    // Initial render
+    renderPackages(currentPackages);
+
+    // Fetch dynamic packages from Spring Boot API
+    if (window.SerendibApi) {
+        SerendibApi.packages.getAll()
+            .then(res => {
+                if (res && res.data) {
+                    currentPackages = res.data;
+                    renderPackages(currentPackages);
+                }
+            })
+            .catch(err => console.info('[Packages] Backend dynamic fetch skipped:', err.message));
+    }
+
+    document.getElementById("filterBtn").onclick = () => {
+        const s = document.getElementById("search").value.toLowerCase();
+        const c = document.getElementById("cat").value;
+        const p = +document.getElementById("price").value;
+        const d = +document.getElementById("days").value;
+
+        const arr = currentPackages.filter(
+            x =>
+                (!s || x.name.toLowerCase().includes(s)) &&
+                (!c || x.category === c) &&
+                x.price <= p &&
+                x.days <= d
+        );
+
+        renderPackages(arr);
+    };
+</script>
+
+</body>
+</html>

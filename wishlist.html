@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Wishlist | Serendib</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><link rel="stylesheet" href="css/style.css">
+</head>
+<body class="global-video-page">
+    <!-- Global cinematic background video -->
+    <video class="global-bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="BACKGROUND.MP4" type="video/mp4">
+</video>
+<div class="global-bg-overlay" aria-hidden="true">
+</div>
+<div id="siteHeader">
+</div>
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <span class="eyebrow">Save for later</span>
+            <h1>Wishlist</h1>
+            <p>Frontend examples of saved packages and hotels.</p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="cards" id="wishlistGrid">
+            </div>
+        </div>
+    </section>
+</main>
+<div id="siteFooter">
+</div><script src="js/data.js"></script><script src="js/app.js"></script><script>document.getElementById('wishlistGrid').innerHTML=packageCard(DATA.packages[0])+hotelCard(DATA.hotels[0]);wireWishlist();</script></body>
+</html>

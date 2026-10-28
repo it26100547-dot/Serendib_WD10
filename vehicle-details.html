@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vehicle Details | Serendib</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><link rel="stylesheet" href="css/style.css">
+</head>
+<body class="global-video-page">
+    <video class="global-bg-video" autoplay muted loop playsinline aria-hidden="true"><source src="TRANSPORT.mp4" type="video/mp4"></video>
+    <div class="global-bg-overlay">
+    </div>
+    <div id="siteHeader">
+    </div>
+    <main id="detailRoot">
+        <section class="section">
+            <div class="container">
+                <div class="notice">Loading vehicle...</div>
+            </div>
+        </section>
+    </main>
+    <div id="siteFooter">
+    </div><script src="js/data.js"></script><script src="js/api.js"></script><script src="js/app.js"></script><script src="js/booking-ui.js"></script><script>
+    const safe=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    async function loadVehicle(){const id=qs('id');let v;try{v=(await SerendibApi.transport.getById(id)).data;}catch(e){v=DATA.vehicles.find(x=>x.id==id)||DATA.vehicles[0];}if(!v)return;document.title=`${v.name} | Serendib`;const imgs=[v.image,...(v.images||[])].filter(Boolean).filter((x,i,a)=>a.indexOf(x)===i).slice(0,5);while(imgs.length<3)imgs.push(imgs[0]||'assets/images/hero-nine-arch-train.jpg');document.getElementById('detailRoot').innerHTML=`
+    <section class="detail-hero"><div class="detail-gallery">${imgs.map((im,i)=>`<img class="${i===0?'main':''}" src="${safe(im)}" alt="${safe(v.name)}">`).join('')}</div><div class="detail-summary"><span class="eyebrow">${safe(v.type||'Vehicle')}</span><h1>${safe(v.name)}</h1><p>${safe(v.description||v.summary||'')}</p><div class="summary-box"><div class="summary-item"><span>CAPACITY</span><strong>${safe(v.capacity||1)} passengers</strong></div><div class="summary-item"><span>STATUS</span><strong>${safe(v.status||'Available')}</strong></div><div class="summary-item"><span>DRIVER</span><strong>${v.driver?'Included':'Not included'}</strong></div><div class="summary-item"><span>PRICE</span><strong>${money(v.price)} / day</strong></div></div></div></section>
+    <section class="section"><div class="container detail-grid"><div><div class="panel"><h2>Vehicle details</h2><div class="info-list"><div><span>Vehicle type</span><strong>${safe(v.type||'-')}</strong></div><div><span>Passengers</span><strong>${safe(v.capacity||'-')}</strong></div><div><span>Air conditioning</span><strong>${v.ac?'Yes':'No'}</strong></div><div><span>Driver</span><strong>${v.driver?'Included / available':'No'}</strong></div></div></div><div class="two-detail-panels"><div class="panel"><h3>Features</h3>${(v.features||[]).length?`<ul class="detail-list">${v.features.map(x=>`<li>${safe(x)}</li>`).join('')}</ul>`:'<p>Features are not specified.</p>'}</div><div class="panel"><h3>Pickup areas</h3>${(v.pickupAreas||[]).length?`<ul class="detail-list">${v.pickupAreas.map(x=>`<li>${safe(x)}</li>`).join('')}</ul>`:'<p>Pickup can be arranged after confirmation.</p>'}</div></div><div class="panel" style="margin-top:20px"><h3>Booking terms</h3><p>${safe(v.terms||'Vehicle availability is confirmed by the administrator after payment review.')}</p></div></div><aside><form class="panel sticky booking-panel" id="vehicleBooking"><h3>Request this vehicle</h3><div class="field"><label>PICKUP DATE</label><input id="vehStart" type="date" required></div><div class="field"><label>RETURN DATE</label><input id="vehEnd" type="date" required></div><div class="field"><label>PICKUP LOCATION</label><input id="vehPickup" placeholder="Colombo, Kandy..." required></div><div class="field"><label>DESTINATION / ROUTE</label><input id="vehDestination" placeholder="Ella, Galle..." required></div>${SerendibBookingUI.paymentFields('vehPay')}<button class="btn btn-primary" style="width:100%;margin-top:15px" type="submit" ${String(v.status).toLowerCase()!=='available'?'disabled':''}>${String(v.status).toLowerCase()==='available'?'Request vehicle & submit payment':'Currently unavailable'}</button><div class="notice" id="vehMsg">The backend calculates the rental total from the number of days.</div></form></aside></div></section>`;SerendibBookingUI.wirePaymentToggle('vehPay');document.getElementById('vehicleBooking').addEventListener('submit',async e=>{e.preventDefault();const msg=document.getElementById('vehMsg');try{const method=document.querySelector('input[name="vehPayMethod"]:checked')?.value||'SLIP';await SerendibBookingUI.createAndPay({bookingType:'TRANSPORT',itemId:v.id,startDate:document.getElementById('vehStart').value,endDate:document.getElementById('vehEnd').value,customerNote:`Pickup: ${document.getElementById('vehPickup').value}. Destination/route: ${document.getElementById('vehDestination').value}`},method,document.getElementById('vehPaySlip').files[0],msg);e.target.querySelector('button[type=submit]').disabled=true;}catch(err){msg.className='notice error';msg.textContent=err.message;}});}
+    loadVehicle();
+</script></body>
+</html>

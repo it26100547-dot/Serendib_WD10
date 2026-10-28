@@ -1,0 +1,2487 @@
+/* =========================================================
+   SERENDIB - COMPLETE STYLESHEET
+   ========================================================= */
+
+
+/* =========================================================
+   1. ROOT VARIABLES
+   ========================================================= */
+
+:root {
+    --yellow: #d6ad55;
+    --gold: #d6ad55;
+    --gold-light: #ead7a8;
+
+    --black: #101513;
+    --dark: #111a17;
+    --forest: #17372f;
+
+    --gray: #6f746f;
+    --light: #f6f2e9;
+    --cream: #fbf8f1;
+    --white: #ffffff;
+
+    --red: #b45b55;
+    --green: #2d735b;
+
+    --radius: 18px;
+
+    --shadow:
+            0 18px 50px rgba(17, 26, 23, 0.10);
+
+    --container: 1240px;
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+    color: var(--black);
+    background: var(--cream);
+}
+
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: min(
+            var(--container),
+            calc(100% - 40px)
+    );
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   3. NAVBAR
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+            rgba(251, 248, 241, 0.94);
+
+    border-bottom:
+            1px solid rgba(16, 21, 19, 0.09);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.nav-wrap {
+    width: min(
+            var(--container),
+            calc(100% - 40px)
+    );
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-right: auto;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    letter-spacing: -0.02em;
+}
+
+.brand-mark {
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+    color: #111;
+
+    box-shadow:
+            0 8px 24px rgba(214, 173, 85, 0.26);
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+}
+
+.desktop-nav a {
+    position: relative;
+
+    padding: 10px 0;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.055em;
+}
+
+.desktop-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 100%;
+
+    bottom: 4px;
+
+    height: 2px;
+
+    background: var(--gold);
+
+    transition: right 0.25s ease;
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after {
+    right: 0;
+}
+
+.user-btn {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    border:
+            1px solid rgba(16, 21, 19, 0.13);
+
+    background:
+            rgba(255, 255, 255, 0.72);
+}
+
+.menu-btn {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    border: 0;
+
+    background: var(--forest);
+    color: #fff;
+}
+
+.mobile-menu {
+    display: none;
+
+    padding: 14px 20px;
+
+    background:
+            rgba(13, 24, 20, 0.96);
+
+    color: #fff;
+}
+
+.mobile-menu.open {
+    display: block;
+}
+
+.mobile-menu a {
+    display: block;
+
+    padding: 12px 0;
+
+    border-bottom:
+            1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   4. BUTTONS
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 20px;
+
+    border: 0;
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    transition:
+            transform 0.22s ease,
+            box-shadow 0.22s ease,
+            background 0.22s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #121714;
+
+    box-shadow:
+            0 10px 24px rgba(214, 173, 85, 0.20);
+}
+
+.btn-dark {
+    background: var(--forest);
+    color: #fff;
+}
+
+.btn-outline {
+    background: transparent;
+
+    border:
+            1px solid rgba(255, 255, 255, 0.30);
+
+    color: #fff;
+}
+
+.btn-danger {
+    background: #ffe6ea;
+    color: #9f2132;
+}
+
+
+/* =========================================================
+   5. GENERIC SECTIONS
+   ========================================================= */
+
+.section {
+    padding: 85px 0;
+}
+
+.section.alt {
+    background: transparent;
+}
+
+.section-head {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 30px;
+
+    margin-bottom: 34px;
+}
+
+.section-head h2 {
+    color: #fff;
+
+    font-size:
+            clamp(30px, 4vw, 52px);
+
+    line-height: 1;
+
+    letter-spacing: -0.035em;
+
+    text-shadow:
+            0 3px 20px rgba(0, 0, 0, 0.30);
+}
+
+.section-head p {
+    max-width: 610px;
+
+    color:
+            rgba(255, 255, 255, 0.78);
+
+    line-height: 1.7;
+}
+
+.eyebrow {
+    color: var(--gold-light);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   6. CARD GRID
+   ========================================================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   7. GLOBAL GLASS CARD
+   ========================================================= */
+
+.card {
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+            rgba(255, 255, 255, 0.16);
+
+    border:
+            1px solid rgba(255, 255, 255, 0.26);
+
+    box-shadow:
+            0 12px 35px rgba(0, 0, 0, 0.16),
+            inset 0 1px 0 rgba(255, 255, 255, 0.20);
+
+    backdrop-filter:
+            blur(20px)
+            saturate(145%);
+
+    -webkit-backdrop-filter:
+            blur(20px)
+            saturate(145%);
+
+    transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+            0 22px 55px rgba(0, 0, 0, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.card-media {
+    position: relative;
+
+    height: 240px;
+
+    overflow: hidden;
+}
+
+.card-media img {
+    height: 100%;
+
+    transition:
+            transform 0.6s ease;
+}
+
+.card:hover .card-media img {
+    transform: scale(1.045);
+}
+
+.badge {
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+
+    padding: 8px 11px;
+
+    border-radius: 999px;
+
+    background:
+            rgba(214, 173, 85, 0.95);
+
+    color: #161914;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.card-body {
+    padding: 22px;
+
+    background: transparent;
+}
+
+.card-body h3 {
+    margin-bottom: 8px;
+
+    color: #fff;
+
+    font-size: 21px;
+}
+
+.card-body p {
+    color:
+            rgba(255, 255, 255, 0.78);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin: 14px 0;
+
+    color:
+            rgba(255, 255, 255, 0.72);
+
+    font-size: 12px;
+}
+
+.price {
+    color: var(--gold-light);
+
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.card-actions {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.card-actions .btn {
+    padding: 10px 13px;
+}
+
+
+/* =========================================================
+   8. PAGE HERO
+   ========================================================= */
+
+.page-hero {
+    min-height: 390px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 76px 0;
+
+    background: transparent;
+
+    color: #fff;
+}
+
+.page-hero h1 {
+    margin: 12px 0;
+
+    font-size:
+            clamp(40px, 5vw, 70px);
+
+    text-shadow:
+            0 5px 25px rgba(0, 0, 0, 0.55);
+}
+
+.page-hero p {
+    max-width: 760px;
+
+    color:
+            rgba(255, 255, 255, 0.88);
+
+    line-height: 1.7;
+
+    text-shadow:
+            0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   9. FILTER BAR
+   ========================================================= */
+
+.filter-bar {
+    position: relative;
+
+    z-index: 5;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr repeat(3, 1fr) auto;
+
+    gap: 12px;
+
+    margin-top: -30px;
+
+    padding: 16px;
+
+    border-radius: 18px;
+
+    background:
+            rgba(255, 255, 255, 0.16);
+
+    border:
+            1px solid rgba(255, 255, 255, 0.26);
+
+    box-shadow:
+            0 12px 35px rgba(0, 0, 0, 0.16);
+
+    backdrop-filter:
+            blur(20px)
+            saturate(145%);
+
+    -webkit-backdrop-filter:
+            blur(20px)
+            saturate(145%);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.field label {
+    color:
+            rgba(255, 255, 255, 0.88);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border:
+            1px solid rgba(255, 255, 255, 0.28);
+
+    border-radius: 9px;
+
+    background:
+            rgba(255, 255, 255, 0.82);
+
+    color: #111;
+
+    outline: none;
+}
+
+.field textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   10. DETAIL PAGE
+   ========================================================= */
+
+.detail-hero {
+    min-height: 560px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr 0.85fr;
+}
+
+.detail-gallery {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    grid-template-rows:
+        1fr 1fr;
+
+    gap: 8px;
+
+    padding: 8px;
+
+    background:
+            rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.detail-gallery img {
+    height: 100%;
+}
+
+.detail-gallery .main {
+    grid-row: 1 / 3;
+}
+
+.detail-summary {
+    padding: 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background:
+            rgba(10, 30, 23, 0.76);
+
+    color: #fff;
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.detail-summary h1 {
+    font-size: 48px;
+
+    line-height: 1;
+}
+
+.detail-summary p {
+    margin: 18px 0;
+
+    color:
+            rgba(255, 255, 255, 0.75);
+
+    line-height: 1.8;
+}
+
+.summary-box {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+
+    margin: 18px 0;
+}
+
+.summary-item {
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background:
+            rgba(255, 255, 255, 0.12);
+
+    border:
+            1px solid rgba(255, 255, 255, 0.20);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.summary-item span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color:
+            rgba(255, 255, 255, 0.62);
+
+    font-size: 11px;
+}
+
+.summary-item strong {
+    color: #fff;
+
+    font-size: 16px;
+}
+
+.detail-grid {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    gap: 30px;
+}
+
+.panel {
+    padding: 26px;
+
+    border-radius: 18px;
+
+    background:
+            rgba(255, 255, 255, 0.16);
+
+    border:
+            1px solid rgba(255, 255, 255, 0.26);
+
+    box-shadow:
+            0 12px 35px rgba(0, 0, 0, 0.16);
+
+    backdrop-filter:
+            blur(20px)
+            saturate(145%);
+
+    -webkit-backdrop-filter:
+            blur(20px)
+            saturate(145%);
+}
+
+.panel h2,
+.panel h3 {
+    margin-bottom: 16px;
+
+    color: #fff;
+}
+
+.panel p {
+    color:
+            rgba(255, 255, 255, 0.78);
+
+    line-height: 1.8;
+}
+
+.itinerary {
+    display: grid;
+
+    gap: 14px;
+}
+
+.day {
+    display: grid;
+
+    grid-template-columns:
+        86px 1fr;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background:
+            rgba(255, 255, 255, 0.14);
+
+    border:
+            1px solid rgba(255, 255, 255, 0.24);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.day-num {
+    display: grid;
+
+    place-items: center;
+
+    background:
+            rgba(214, 173, 85, 0.92);
+
+    color: #111;
+
+    font-weight: 900;
+}
+
+.day-content {
+    padding: 20px;
+
+    background: transparent;
+
+    color:
+            rgba(255, 255, 255, 0.82);
+}
+
+.day-content h3 {
+    color: #fff;
+}
+
+.day-content ul {
+    margin:
+            10px 0 0 18px;
+
+    color:
+            rgba(255, 255, 255, 0.75);
+
+    line-height: 1.7;
+}
+
+.sticky {
+    position: sticky;
+
+    top: 105px;
+}
+
+.info-list {
+    display: grid;
+
+    gap: 10px;
+}
+
+.info-list div {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 9px 0;
+
+    border-bottom:
+            1px solid rgba(255, 255, 255, 0.16);
+
+    color:
+            rgba(255, 255, 255, 0.82);
+
+    font-size: 13px;
+}
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.gallery-grid img {
+    height: 180px;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================================
+   11. LOGIN / REGISTER
+   NO SIDE IMAGE
+   CENTERED FORM
+   ========================================================= */
+
+.auth-wrap {
+    width: 100%;
+
+    min-height:
+            calc(100vh - 82px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    background: transparent;
+}
+
+.auth-form {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: transparent !important;
+}
+
+.form-card {
+    width:
+            min(480px, 100%);
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    background:
+            rgba(255, 255, 255, 0.16);
+
+    border:
+            1px solid rgba(255, 255, 255, 0.28);
+
+    box-shadow:
+            0 18px 55px rgba(0, 0, 0, 0.20),
+            inset 0 1px 0 rgba(255, 255, 255, 0.20);
+
+    backdrop-filter:
+            blur(22px)
+            saturate(145%);
+
+    -webkit-backdrop-filter:
+            blur(22px)
+            saturate(145%);
+}
+
+.form-card h2 {
+    margin-bottom: 10px;
+
+    color: #fff;
+
+    font-size: 36px;
+
+    text-align: center;
+}
+
+.form-card > p {
+    margin-bottom: 28px;
+
+    color:
+            rgba(255, 255, 255, 0.74);
+
+    text-align: center;
+
+    line-height: 1.6;
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+}
+
+.form-grid .full {
+    grid-column: auto;
+}
+
+.form-card .field label {
+    color:
+            rgba(255, 255, 255, 0.90);
+}
+
+.form-card .field input,
+.form-card .field select,
+.form-card .field textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border:
+            1px solid rgba(255, 255, 255, 0.24);
+
+    border-radius: 10px;
+
+    background:
+            rgba(255, 255, 255, 0.10);
+
+    color: #fff;
+
+    outline: none;
+
+    transition:
+            background 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+}
+
+.form-card .field input::placeholder,
+.form-card .field textarea::placeholder {
+    color:
+            rgba(255, 255, 255, 0.50);
+}
+
+.form-card .field input:focus,
+.form-card .field select:focus,
+.form-card .field textarea:focus {
+    background:
+            rgba(255, 255, 255, 0.15);
+
+    border-color:
+            rgba(214, 173, 85, 0.80);
+
+    box-shadow:
+            0 0 0 3px rgba(214, 173, 85, 0.12);
+}
+
+.form-card .btn {
+    width: 100%;
+}
+
+.form-card a {
+    color: var(--gold-light);
+}
+
+.auth-links {
+    margin-top: 22px;
+
+    color:
+            rgba(255, 255, 255, 0.74);
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+.auth-links a {
+    color: var(--gold-light);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   12. NOTICE
+   ========================================================= */
+
+.notice {
+    margin-top: 14px;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    background:
+            rgba(255, 255, 255, 0.13);
+
+    border:
+            1px solid rgba(255, 255, 255, 0.20);
+
+    color: #fff;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.success {
+    background:
+            rgba(60, 170, 110, 0.20);
+
+    color: #d7ffea;
+}
+
+
+/* =========================================================
+   13. FOOTER
+   ========================================================= */
+
+.footer {
+    padding:
+            60px 0 25px;
+
+    background:
+            rgba(6, 18, 13, 0.90);
+
+    color: #aeb9b2;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.3fr repeat(3, 1fr);
+
+    gap: 35px;
+}
+
+.footer h3 {
+    margin-bottom: 15px;
+
+    color: #f7f1e5;
+}
+
+.footer a,
+.footer p {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+}
+
+.footer-bottom {
+    margin-top: 35px;
+
+    padding-top: 18px;
+
+    border-top:
+            1px solid rgba(255, 255, 255, 0.10);
+
+    color: #777;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   14. HOME IMAGE SLIDESHOW (FIXED BACKGROUND - DOES NOT SCROLL)
+   ========================================================= */
+
+.home-page .hero-slides {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.home-page .hero-slide {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1.25s ease;
+}
+
+.home-page .hero-slide.is-active {
+    z-index: 1;
+    opacity: 1;
+}
+
+.home-page .hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: scale(1.0);
+    filter: saturate(0.96) contrast(1.04) brightness(0.92);
+}
+
+/* Custom framing to show the full beauty of each landmark without cropping */
+.home-page .hero-slide:nth-child(1) img {
+    object-position: center 32%; /* Sigiriya Rock summit & water gardens */
+}
+
+.home-page .hero-slide:nth-child(2) img {
+    object-position: center 48%; /* Nine Arch Bridge & train */
+}
+
+.home-page .hero-slide:nth-child(3) img {
+    object-position: center 35%; /* Sigiriya aerial summit & horizon */
+}
+
+.home-page .hero-slide:nth-child(4) img {
+    object-position: center 26%; /* Anuradhapura stupa spire & morning sunrise */
+}
+
+.home-page .hero-slide:nth-child(5) img {
+    object-position: center 52%; /* Elephants herd & water splash */
+}
+
+.home-page .hero-slide.is-active img {
+    animation: heroKenBurns 6.5s ease-out both;
+}
+
+/* Gentle zoom-out reveal animation */
+@keyframes heroKenBurns {
+    from {
+        transform: scale(1.03);
+    }
+    to {
+        transform: scale(1.0);
+    }
+}
+
+.home-page .image-hero-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(0, 0, 0, 0.15),
+            rgba(5, 15, 11, 0.40) 55%,
+            rgba(5, 15, 11, 0.72) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(5, 14, 10, 0.28) 0%,
+            rgba(5, 14, 10, 0.58) 100%
+        );
+}
+
+.home-page #siteHeader,
+.home-page main,
+.home-page #siteFooter {
+    position: relative;
+    z-index: 2;
+}
+
+.home-page #siteHeader {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* =========================================================
+   15. HOME NAVBAR GLASS BLUR
+   ========================================================= */
+
+.home-page .site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color: #fff;
+    background: rgba(7, 22, 17, 0.65);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(18px) saturate(145%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+}
+
+.home-page .brand-mark {
+    background: var(--gold);
+    color: #121714;
+}
+
+.home-page .desktop-nav a {
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.home-page .user-btn {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.image-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 110px 24px 80px;
+    background: transparent;
+}
+
+.image-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 960px;
+    margin: auto 0;
+}
+
+.image-hero .hero-welcome {
+    min-height: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(70px, 10vw, 154px);
+    font-weight: 400;
+    line-height: 1.1;
+    text-shadow: 0 5px 34px rgba(0, 0, 0, 0.65);
+}
+
+.hero-subtext {
+    max-width: 680px;
+    margin-top: 14px;
+    color: rgba(255, 255, 255, 0.90);
+    font-size: clamp(14px, 1.8vw, 17px);
+    font-weight: 500;
+    line-height: 1.7;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================================
+   HERO SCROLL INDICATOR
+   ========================================================= */
+
+.hero-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hero-scroll:hover {
+    color: var(--gold);
+    transform: translateX(-50%) translateY(4px);
+}
+
+.hero-scroll-mouse {
+    width: 24px;
+    height: 38px;
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.hero-scroll-dot {
+    width: 4px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 2px;
+    animation: scrollDotPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes scrollDotPulse {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(10px);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.hero-scroll-arrow {
+    font-size: 12px;
+    animation: bounceDown 1.8s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+/* =========================================================
+   HERO IMAGE SLIDE BAR CONTROLS (HOME ONLY)
+   ========================================================= */
+
+.hero-slidebar-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 36px;
+    z-index: 10;
+}
+
+.hero-slide-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(4, 14, 10, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.slide-bar-item {
+    position: relative;
+    width: 32px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.28);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+}
+
+.slide-bar-item:hover {
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.slide-bar-item.is-active {
+    width: 54px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.slide-bar-fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #d4af37, #f3e5ab);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+}
+
+.slide-bar-item.is-active .slide-bar-fill {
+    width: 100%;
+    box-shadow: 0 0 12px rgba(222, 169, 78, 0.85);
+}
+
+.slide-nav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(4, 14, 10, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 13px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: all 0.25s ease;
+}
+
+.slide-nav-btn:hover {
+    background: var(--gold);
+    color: #0b1a13;
+    border-color: var(--gold);
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(222, 169, 78, 0.45);
+}
+
+.slide-nav-btn:active {
+    transform: scale(0.96);
+}
+
+/* =========================================================
+   HOME CONTENT SECTIONS & ABOUT US
+   ========================================================= */
+
+.home-sections-wrap {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(
+        180deg,
+        rgba(7, 17, 13, 0.48) 0%,
+        rgba(7, 17, 13, 0.68) 240px,
+        rgba(7, 17, 13, 0.82) 100%
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-content h2 {
+    color: #fff;
+    font-size: clamp(30px, 4vw, 48px);
+    margin: 8px 0 16px;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+}
+
+.about-lead {
+    font-size: 15.5px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 14px;
+}
+
+.about-content p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.76);
+    margin-bottom: 24px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.about-feature-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.about-feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(214, 173, 85, 0.15);
+    border: 1px solid rgba(214, 173, 85, 0.35);
+    color: var(--gold);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.about-feature-item h4 {
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.about-feature-item p {
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 12.5px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.about-stats-card {
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 34px 28px;
+}
+
+.stats-card-inner h3 {
+    color: var(--gold-light);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.stats-card-inner > p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.stat-box {
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    color: var(--gold);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.stat-title {
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.about-cta .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px;
+    font-size: 14px;
+}
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   16. GLOBAL VIDEO BACKGROUND
+   ========================================================= */
+
+html,
+body.global-video-page {
+    min-height: 100%;
+
+    background: #07110d;
+}
+
+.global-video-page .global-bg-video {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    pointer-events: none;
+
+    filter:
+            brightness(0.68)
+            saturate(0.95)
+            contrast(1.06);
+}
+
+.global-video-page .global-bg-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+            radial-gradient(
+                    circle at 50% 25%,
+                    rgba(0, 0, 0, 0.02),
+                    rgba(5, 15, 11, 0.25) 58%,
+                    rgba(5, 15, 11, 0.48) 100%
+            ),
+            linear-gradient(
+                    180deg,
+                    rgba(5, 14, 10, 0.18),
+                    rgba(5, 14, 10, 0.46)
+            );
+}
+
+.global-video-page #siteHeader {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.global-video-page main,
+.global-video-page #siteFooter {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   17. VIDEO PAGE NAVBAR
+   ========================================================= */
+
+.global-video-page .site-header {
+    color: #fff;
+
+    background:
+            rgba(7, 22, 17, 0.42);
+
+    border-bottom:
+            1px solid rgba(255, 255, 255, 0.14);
+
+    backdrop-filter:
+            blur(18px)
+            saturate(145%);
+
+    -webkit-backdrop-filter:
+            blur(18px)
+            saturate(145%);
+}
+
+.global-video-page .brand,
+.global-video-page .desktop-nav a,
+.global-video-page .user-btn {
+    color: #fff;
+}
+
+.global-video-page .user-btn {
+    background:
+            rgba(255, 255, 255, 0.10);
+
+    border-color:
+            rgba(255, 255, 255, 0.25);
+}
+
+
+/* =========================================================
+   18. REMOVE LARGE WHITE / CREAM BACKGROUNDS
+   ========================================================= */
+
+.global-video-page .section,
+.global-video-page section.section,
+.global-video-page .section.alt {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.global-video-page main,
+.global-video-page .page-content,
+.global-video-page .section > .container,
+.global-video-page main > .container {
+    background: transparent !important;
+}
+
+
+/* =========================================================
+   19. FORCE GLASS EFFECT GLOBALLY
+   ========================================================= */
+
+body.global-video-page .card,
+body.global-video-page .panel,
+body.global-video-page .filter-bar,
+body.global-video-page .form-card,
+body.global-video-page .table-card,
+body.global-video-page .stat,
+body.global-video-page .summary-item,
+body.global-video-page .day,
+body.global-video-page .notice,
+body.global-video-page .modal-card {
+    background:
+            rgba(255, 255, 255, 0.16) !important;
+
+    background-color:
+            rgba(255, 255, 255, 0.16) !important;
+
+    background-image:
+            none !important;
+
+    border:
+            1px solid rgba(255, 255, 255, 0.26) !important;
+
+    box-shadow:
+            0 12px 35px rgba(0, 0, 0, 0.16),
+            inset 0 1px 0 rgba(255, 255, 255, 0.20) !important;
+
+    backdrop-filter:
+            blur(20px)
+            saturate(145%) !important;
+
+    -webkit-backdrop-filter:
+            blur(20px)
+            saturate(145%) !important;
+}
+
+body.global-video-page .card-body,
+body.global-video-page .day-content {
+    background: transparent !important;
+}
+
+
+/* =========================================================
+   20. ADMIN
+   ========================================================= */
+
+.admin-body {
+    background: #f1ede4;
+}
+
+.admin-layout {
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns:
+        260px 1fr;
+}
+
+.sidebar {
+    position: sticky;
+
+    top: 0;
+
+    height: 100vh;
+
+    padding: 24px;
+
+    background: #0c1512;
+
+    color: #fff;
+}
+
+.sidebar .brand {
+    margin-bottom: 32px;
+}
+
+.sidebar-nav {
+    display: grid;
+
+    gap: 6px;
+}
+
+.sidebar-nav a {
+    padding: 12px 14px;
+
+    border-radius: 9px;
+
+    color: #bbb;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: var(--gold);
+
+    color: #101513;
+}
+
+.admin-main {
+    padding: 32px;
+}
+
+.admin-top {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.admin-top h1 {
+    font-size: 34px;
+}
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 28px;
+}
+
+.stat {
+    padding: 20px;
+
+    border-radius: 14px;
+
+    background: #fff;
+
+    border:
+            1px solid #e8e8e8;
+}
+
+.stat span {
+    color: #777;
+
+    font-size: 12px;
+}
+
+.stat strong {
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 32px;
+}
+
+.table-card {
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #fff;
+
+    border:
+            1px solid #e6e6e6;
+}
+
+.table-toolbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    border-bottom:
+            1px solid #eee;
+}
+
+.table-wrap {
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+
+    min-width: 820px;
+
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+
+    border-bottom:
+            1px solid #eee;
+
+    text-align: left;
+
+    font-size: 12px;
+}
+
+th {
+    background: #fafafa;
+
+    color: #666;
+}
+
+
+/* =========================================================
+   21. RESPONSIVE TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: grid;
+        place-items: center;
+    }
+
+    .cards {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .filter-bar {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .detail-hero,
+    .auth-wrap {
+        grid-template-columns:
+            1fr;
+    }
+
+    .detail-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .sticky {
+        position: static;
+    }
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .admin-layout {
+        grid-template-columns:
+            1fr;
+    }
+
+    .sidebar {
+        position: static;
+
+        height: auto;
+    }
+
+    .sidebar-nav {
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   22. RESPONSIVE MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .container,
+    .nav-wrap {
+        width:
+                min(
+                        calc(100% - 24px),
+                        var(--container)
+                );
+    }
+
+    .cards {
+        grid-template-columns:
+            1fr;
+    }
+
+    .filter-bar {
+        grid-template-columns:
+            1fr;
+    }
+
+    .section {
+        padding:
+                60px 0;
+    }
+
+    .section-head {
+        display: block;
+    }
+
+    .section-head p {
+        margin-top: 14px;
+    }
+
+    .detail-summary {
+        padding:
+                34px 22px;
+    }
+
+    .detail-summary h1 {
+        font-size: 38px;
+    }
+
+    .summary-box {
+        grid-template-columns:
+            1fr;
+    }
+
+    .day {
+        grid-template-columns:
+            60px 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .stats {
+        grid-template-columns:
+            1fr;
+    }
+
+    .sidebar-nav {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .admin-main {
+        padding: 18px;
+    }
+
+    .auth-wrap {
+        min-height:
+                calc(100svh - 82px);
+
+        padding:
+                30px 16px;
+    }
+
+    .form-card {
+        padding:
+                30px 22px;
+    }
+
+    .form-card h2 {
+        font-size: 30px;
+    }
+
+    .image-hero {
+        height: 100svh;
+        min-height: 560px;
+    }
+
+    .image-hero-content {
+        padding:
+                100px 18px 30px;
+    }
+
+    .image-hero .hero-welcome {
+        font-size:
+                clamp(56px, 17vw, 88px);
+    }
+}
+
+
+/* =========================================================
+   23. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-slide {
+        transition: none;
+    }
+
+    .hero-slide.is-active img {
+        animation: none;
+    }
+}
+/* =========================================================
+   22. ADMIN CRUD MODAL & ACTIONS
+   ========================================================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: rgba(7, 17, 13, 0.58);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.modal.open {
+    display: grid;
+}
+
+.modal-card {
+    width: min(680px, 100%);
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+    padding: 24px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+.modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.modal-head h2 {
+    margin: 0;
+}
+
+.close-btn {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #f1ede4;
+    color: #101513;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background: #e5ded1;
+}
+
+.action-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.action-row button {
+    border: 0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.action-row .edit {
+    background: #ece8dc;
+    color: #20332b;
+}
+
+.action-row .delete {
+    background: #fde8e7;
+    color: #9e2f2a;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.status.active {
+    background: #e4f3e9;
+    color: #24643b;
+}
+
+.status.pending {
+    background: #fff2d8;
+    color: #8a6417;
+}
+
+@media (max-width: 700px) {
+    .modal-card {
+        padding: 18px;
+    }
+}
+
+/* =========================================================
+   ADMIN MODAL VISIBILITY FIX
+   The global .field style is designed for dark/glass pages. Admin modals use
+   a white card, so labels/controls need an explicit high-contrast theme.
+   ========================================================= */
+.admin-body .modal-card .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.admin-body .modal-card .form-grid .full {
+    grid-column: 1 / -1;
+}
+
+.admin-body .modal-card .field label {
+    color: #26332e;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.admin-body .modal-card .field input,
+.admin-body .modal-card .field select,
+.admin-body .modal-card .field textarea {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 13px;
+    border: 1px solid #c9d2cd;
+    border-radius: 9px;
+    background: #f8faf9;
+    color: #111815;
+    caret-color: #111815;
+    opacity: 1;
+    box-shadow: none;
+}
+
+.admin-body .modal-card .field textarea {
+    min-height: 130px;
+}
+
+.admin-body .modal-card .field input::placeholder,
+.admin-body .modal-card .field textarea::placeholder {
+    color: #7b8681;
+    opacity: 1;
+}
+
+.admin-body .modal-card .field input:focus,
+.admin-body .modal-card .field select:focus,
+.admin-body .modal-card .field textarea:focus {
+    border-color: #b68b32;
+    background: #fff;
+    outline: 3px solid rgba(182, 139, 50, 0.15);
+}
+
+.admin-body .modal-card .btn {
+    min-width: 120px;
+}
+
+@media (max-width: 650px) {
+    .admin-body .modal-card .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-body .modal-card .form-grid .full {
+        grid-column: auto;
+    }
+}
+
+
+/* =========================================================
+   HOME DARK CONTINUOUS BACKGROUND
+   Keep the home page cinematic after the hero; no cream/white strip while scrolling.
+   ========================================================= */
+body.home-page {
+    background: #07110d;
+    color: #fff;
+    min-height: 100%;
+}
+.home-page main {
+    background: transparent;
+}
+.home-page .section,
+.home-page .section.alt,
+.home-page .section > .container {
+    background: transparent !important;
+}
+.home-page .footer {
+    margin-top: 0;
+}
+
+[hidden] { display: none !important; }
+
+/* =========================================================
+   FULL CRUD + BOOKING / PAYMENT UI
+   ========================================================= */
+.admin-body .modal-card { width: min(1040px, 100%); }
+.admin-body .modal-card .field textarea { min-height: 105px; resize: vertical; }
+.admin-body .modal-card .field input[type="file"] { padding: 9px; background:#fff; }
+.field-help { display:block; margin-top:6px; color:#6e7773; font-size:10px; line-height:1.5; }
+.admin-check { display:flex; align-items:center; min-height:52px; padding-top:20px; }
+.admin-check label { display:flex !important; align-items:center; gap:10px; cursor:pointer; }
+.admin-check input { width:18px !important; min-height:18px !important; height:18px; margin:0; accent-color:#b68b32; }
+.admin-modal-actions { display:flex; gap:10px; position:sticky; bottom:-24px; padding:14px 0 2px; background:rgba(255,255,255,.96); }
+.admin-thumb { width:70px; height:46px; margin-top:7px; border-radius:7px; object-fit:cover; border:1px solid #ddd; }
+.admin-file-link { display:inline-block; margin-top:5px; color:#7b5615; font-weight:800; text-decoration:underline; }
+.booking-status-select { min-width:170px; padding:7px; border:1px solid #ccd3cf; border-radius:7px; background:#fff; }
+.table-toolbar span { font-size:12px; color:#777; }
+
+.payment-box { margin-top:18px; padding:15px; border-radius:14px; border:1px solid rgba(255,255,255,.18); background:rgba(0,0,0,.13); }
+.payment-box h4 { margin-bottom:10px; color:#fff; }
+.payment-choice { display:flex; align-items:flex-start; gap:10px; padding:10px; margin-bottom:8px; border-radius:10px; border:1px solid rgba(255,255,255,.14); cursor:pointer; }
+.payment-choice input { width:auto !important; min-height:auto !important; margin-top:3px; accent-color:var(--gold); }
+.payment-choice span { display:grid; gap:3px; }
+.payment-choice strong { color:#fff; font-size:12px; }
+.payment-choice small { color:rgba(255,255,255,.68); font-size:10px; line-height:1.5; }
+.booking-panel .field { margin-top:12px; }
+.booking-panel textarea { min-height:80px; }
+.detail-list { padding-left:20px; margin-top:12px; color:rgba(255,255,255,.82); line-height:1.9; font-size:13px; }
+.route-line { font-size:17px; line-height:1.8; color:#fff !important; font-weight:600; }
+.two-detail-panels { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px; }
+.compact-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.compact-cards .card-media { height:170px; }
+.booking-list { display:grid; gap:18px; }
+.booking-row { padding:22px; }
+.booking-row-main, .booking-payment { display:flex; justify-content:space-between; align-items:flex-start; gap:20px; }
+.booking-row-main h3 { margin:6px 0; color:#fff; }
+.booking-row-main p, .booking-payment { color:rgba(255,255,255,.75); font-size:12px; line-height:1.7; }
+.booking-total { display:grid; justify-items:end; gap:8px; }
+.booking-total strong { color:var(--gold-light); font-size:22px; }
+.booking-payment { border-top:1px solid rgba(255,255,255,.12); margin-top:15px; padding-top:15px; }
+.booking-payment a { color:var(--gold-light); text-decoration:underline; }
+.booking-actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+.compact-file { position:relative; overflow:hidden; }
+.compact-file input { position:absolute; inset:0; opacity:0; cursor:pointer; }
+.notice.success { border-color:rgba(55,190,120,.45)!important; background:rgba(30,120,75,.22)!important; color:#d5ffe8!important; }
+.notice.error { border-color:rgba(255,100,100,.45)!important; background:rgba(150,30,30,.22)!important; color:#ffe2e2!important; }
+
+@media (max-width:800px){
+  .two-detail-panels,.compact-cards{grid-template-columns:1fr;}
+  .booking-row-main,.booking-payment{display:grid;}
+  .booking-total{justify-items:start;}
+  .booking-actions{justify-content:flex-start;}
+}
+
+/* Final modal contrast guard: all dynamically-generated admin fields remain visible. */
+.admin-body .modal-card .modal-head h2 { color:#111815; }
+.admin-body .modal-card input[type="number"],
+.admin-body .modal-card input[type="email"],
+.admin-body .modal-card input[type="password"],
+.admin-body .modal-card input[type="text"],
+.admin-body .modal-card select,
+.admin-body .modal-card textarea { color:#111815 !important; -webkit-text-fill-color:#111815; }
+
+.booking-admin-note { display:block; width:190px; min-height:58px; margin-top:7px; padding:7px 8px; border:1px solid #ccd3cf; border-radius:7px; background:#fff; color:#111815; resize:vertical; font:inherit; font-size:11px; }
