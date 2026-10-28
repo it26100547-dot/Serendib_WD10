@@ -12,17 +12,24 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/admin")
 public class AdminApiController {
-    private final TourPackageService packageService; private final DestinationService destinationService;
-    private final HotelService hotelService; private final TransportService transportService;
+    private final TourPackageService packageService;
+    private final DestinationService destinationService;
+    private final HotelService hotelService;
+    private final TransportService transportService;
     private final UserService userService;
-    private final BookingService bookingService; private final SessionService sessionService;
+    private final BookingService bookingService;
+    private final SessionService sessionService;
 
     public AdminApiController(TourPackageService packageService, DestinationService destinationService,
                               HotelService hotelService, TransportService transportService,
                               UserService userService, BookingService bookingService, SessionService sessionService) {
-        this.packageService = packageService; this.destinationService = destinationService;
-        this.hotelService = hotelService; this.transportService = transportService;
-        this.userService = userService; this.bookingService = bookingService; this.sessionService = sessionService;
+        this.packageService = packageService;
+        this.destinationService = destinationService;
+        this.hotelService = hotelService;
+        this.transportService = transportService;
+        this.userService = userService;
+        this.bookingService = bookingService;
+        this.sessionService = sessionService;
     }
 
     @GetMapping("/stats")

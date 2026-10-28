@@ -30,13 +30,15 @@ public class DestinationController {
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getById(@PathVariable("id") Long id) {
         Destination item = service.getById(id);
-        if (item == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error("Destination not found."));
+        if (item == null)
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error("Destination not found."));
         return ResponseEntity.ok(ApiResponse.ok(item));
     }
 
     @PostMapping
     public ResponseEntity<ApiResponse> create(@RequestBody Destination destination, HttpSession session) {
-        if (!sessionService.isAdmin(session)) return adminOnly(session);
+        if (!sessionService.isAdmin(session))
+            return adminOnly(session);
         try {
             Destination saved = service.create(destination);
             return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok("Destination created successfully.", saved));

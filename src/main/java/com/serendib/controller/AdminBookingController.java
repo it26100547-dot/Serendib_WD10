@@ -15,12 +15,16 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/admin/bookings")
 public class AdminBookingController {
-    private final BookingService bookingService; private final SessionService sessionService;
-    public AdminBookingController(BookingService bookingService, SessionService sessionService) { this.bookingService = bookingService; this.sessionService = sessionService; }
+    private final BookingService bookingService;
+    private final SessionService sessionService;
+    public AdminBookingController(BookingService bookingService, SessionService sessionService) {
+        this.bookingService = bookingService; this.sessionService = sessionService;
+    }
 
     @GetMapping
     public ResponseEntity<ApiResponse> getAll(HttpSession session) {
-        if (!sessionService.isAdmin(session)) return adminOnly(session);
+        if (!sessionService.isAdmin(session))
+            return adminOnly(session);
         List<Booking> list = bookingService.getAll();
         list.sort((a, b) -> Long.compare(b.getId() == null ? 0 : b.getId(), a.getId() == null ? 0 : a.getId()));
         return ResponseEntity.ok(ApiResponse.ok("All bookings", list));
