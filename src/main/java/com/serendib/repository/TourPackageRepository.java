@@ -91,6 +91,22 @@ public class TourPackageRepository {
         writeAll(items);
         return tourPackage;
     }
+    // Method to delete a package by ID
+    public synchronized boolean deleteById(Long id) {
+        if (id == null) {
+            return false;
+        }
+
+        List<TourPackage> items = findAll();
+        boolean removed = items.removeIf(item -> id.equals(item.getId()));
+
+        if (removed) {
+            // Save the remaining list back to file
+            writeAll(items);
+        }
+
+        return removed;
+    }
 
 
 

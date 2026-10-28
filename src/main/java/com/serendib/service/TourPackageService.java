@@ -61,6 +61,16 @@ public class TourPackageService {
 
         return repository.save(updatedPackage);
     }
+    // Method to delete a package by ID
+    public boolean delete(Long id) {
+        TourPackage existingPackage = repository.findById(id);
+
+        if (existingPackage == null) {
+            throw new IllegalArgumentException("Tour package with ID " + id + " does not exist.");
+        }
+
+        return repository.deleteById(id);
+    }
 
 
 
