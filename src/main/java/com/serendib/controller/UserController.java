@@ -52,6 +52,34 @@ public class UserController {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> update(@PathVariable("id") Long id, @RequestBody User userDetails, HttpSession session) {
+        if (!sessionService.isAdmin(session))
+            return adminOnly(session);
+        try {
+            User updatedUser = service.update(id, userDetails);
+            return ResponseEntity.ok(ApiResponse.ok("User updated successfully.", safeUser(updatedUser)));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> delete(@PathVariable("id") Long id, HttpSession session) {
+        if (!sessionService.isAdmin(session))
+            return adminOnly(session);
+        try {
+            service.deleteById(id);
+            return ResponseEntity.ok(ApiResponse.ok("User deleted successfully."));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+
+
+
+
+
 
 
 

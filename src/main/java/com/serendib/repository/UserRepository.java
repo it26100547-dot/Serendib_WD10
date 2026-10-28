@@ -66,12 +66,43 @@ public class UserRepository {
             user.setId(nextId);
             items.add(user);
         } else {
-            throw new IllegalArgumentException("Updating existing records is not implemented yet.");
+            // Logic for UPDATE: replace the existing record in the list
+            boolean found = false;
+            for (int i = 0; i < items.size(); i++) {
+                if (user.getId().equals(items.get(i).getId())) {
+                    items.set(i, user);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                items.add(user);
+            }
         }
 
         writeAll(items);
         return user;
     }
+    // Logic for DELETE: remove the record by ID and write back to file
+    public synchronized boolean deleteById(Long id) {
+        if (id == null) return false;
+        List<User> items = findAll();
+
+        boolean removed = items.removeIf(user -> id.equals(user.getId()));
+
+        if (removed) {
+            writeAll(items);
+        }
+        return removed;
+    }
+
+
+
+
+
+
+
+
 
 
 

@@ -187,12 +187,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
-  "cardSubtitle" : "6 Days / 5 Nights • 4 Stops",
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$720",
+  "cardSubtitle" : "6 Days / 5 Nights • 4 Stops",
+  "cardCategory" : "Beach",
   "cardImage" : "",
-  "cardTitle" : "Eastern Escape",
-  "cardCategory" : "Beach"
+  "cardTitle" : "Eastern Escape"
 }, {
   "id" : 6,
   "active" : true,
