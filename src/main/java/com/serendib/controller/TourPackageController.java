@@ -57,6 +57,22 @@ public class TourPackageController {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> update(@PathVariable("id") Long id, @RequestBody TourPackage tourPackage, HttpSession session) {
+        // Check if user is admin
+        if (!sessionService.isAdmin(session)) {
+            return adminOnly(session);
+        }
+
+        try {
+            TourPackage updatedItem = service.update(id, tourPackage);
+            return ResponseEntity.ok(ApiResponse.ok("Tour package updated successfully.", updatedItem));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+
 
 
 

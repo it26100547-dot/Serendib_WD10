@@ -45,6 +45,24 @@ public class TourPackageService {
         p.setId(null); validateAndFillNames(p); return repository.save(p);
     }
 
+    // Method to update an existing package
+    public TourPackage update(Long id, TourPackage updatedPackage) {
+        TourPackage existingPackage = repository.findById(id);
+
+        if (existingPackage == null) {
+            throw new IllegalArgumentException("Tour package with ID " + id + " does not exist.");
+        }
+
+        // Ensure ID stays the same
+        updatedPackage.setId(id);
+
+        // Validate basic rules and map transport/hotel names
+        validateAndFillNames(updatedPackage);
+
+        return repository.save(updatedPackage);
+    }
+
+
 
 
     private void validateAndFillNames(TourPackage p) {
