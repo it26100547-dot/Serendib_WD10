@@ -52,6 +52,23 @@ public class UserController {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> update(@PathVariable("id") Long id, @RequestBody User userDetails, HttpSession session) {
+        if (!sessionService.isAdmin(session))
+            return adminOnly(session);
+        try {
+            User updatedUser = service.update(id, userDetails);
+            return ResponseEntity.ok(ApiResponse.ok("User updated successfully.", safeUser(updatedUser)));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+
+
+
+
+
 
 
 
