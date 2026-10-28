@@ -62,19 +62,36 @@ public class TourPackageRepository {
         List<TourPackage> items = findAll();
 
         if (tourPackage.getId() == null || tourPackage.getId() <= 0) {
+            // Logic for CREATE: Generate a new ID
             long nextId = 1;
             for (TourPackage item : items) {
-                if (item.getId() != null && item.getId() >= nextId) nextId = item.getId() + 1;
+                if (item.getId() != null && item.getId() >= nextId)
+                    nextId = item.getId() + 1;
             }
             tourPackage.setId(nextId);
             items.add(tourPackage);
         } else {
-            throw new IllegalArgumentException("Updating existing records is not implemented yet.");
+            // Logic for UPDATE: Find existing package and update its fields
+            int targetIndex = -1;
+            for (int i = 0; i < items.size(); i++) {
+                if (tourPackage.getId().equals(items.get(i).getId())) {
+                    targetIndex = i;
+                    break;
+                }
+            }
+
+            if (targetIndex != -1) {
+                items.set(targetIndex, tourPackage);
+            } else {
+                throw new IllegalArgumentException("Package with ID " + tourPackage.getId() + " not found.");
+            }
         }
 
+        // Save updated list back to file
         writeAll(items);
         return tourPackage;
     }
+
 
 
 

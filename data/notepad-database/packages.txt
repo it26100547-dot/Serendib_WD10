@@ -31,12 +31,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardPriceFormatted" : "$790",
   "itemType" : "PACKAGE",
   "cardSubtitle" : "7 Days / 6 Nights • 5 Stops",
-  "cardPriceFormatted" : "$790",
+  "cardImage" : "",
   "cardCategory" : "Hill Country",
-  "cardTitle" : "Secret Udrata",
-  "cardImage" : ""
+  "cardTitle" : "Secret Udrata"
 }, {
   "id" : 2,
   "active" : true,
@@ -70,12 +70,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardPriceFormatted" : "$690",
   "itemType" : "PACKAGE",
   "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
-  "cardPriceFormatted" : "$690",
+  "cardImage" : "",
   "cardCategory" : "Culture",
-  "cardTitle" : "Ancient Ceylon",
-  "cardImage" : ""
+  "cardTitle" : "Ancient Ceylon"
 }, {
   "id" : 3,
   "active" : true,
@@ -109,12 +109,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardPriceFormatted" : "$575",
   "itemType" : "PACKAGE",
   "cardSubtitle" : "5 Days / 4 Nights • 5 Stops",
-  "cardPriceFormatted" : "$575",
+  "cardImage" : "",
   "cardCategory" : "Beach",
-  "cardTitle" : "Southern Paradise",
-  "cardImage" : ""
+  "cardTitle" : "Southern Paradise"
 }, {
   "id" : 4,
   "active" : true,
@@ -148,12 +148,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardPriceFormatted" : "$815",
   "itemType" : "PACKAGE",
   "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
-  "cardPriceFormatted" : "$815",
+  "cardImage" : "",
   "cardCategory" : "Wildlife",
-  "cardTitle" : "Wild Ceylon",
-  "cardImage" : ""
+  "cardTitle" : "Wild Ceylon"
 }, {
   "id" : 5,
   "active" : true,
@@ -187,12 +187,12 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardPriceFormatted" : "$720",
   "itemType" : "PACKAGE",
   "cardSubtitle" : "6 Days / 5 Nights • 4 Stops",
-  "cardPriceFormatted" : "$720",
+  "cardImage" : "",
   "cardCategory" : "Beach",
-  "cardTitle" : "Eastern Escape",
-  "cardImage" : ""
+  "cardTitle" : "Eastern Escape"
 }, {
   "id" : 6,
   "active" : true,
@@ -226,18 +226,18 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+  "cardPriceFormatted" : "$590",
   "itemType" : "PACKAGE",
   "cardSubtitle" : "5 Days / 4 Nights • 4 Stops",
-  "cardPriceFormatted" : "$590",
+  "cardImage" : "",
   "cardCategory" : "Culture",
-  "cardTitle" : "Northern Heritage",
-  "cardImage" : ""
+  "cardTitle" : "Northern Heritage"
 }, {
   "id" : 7,
   "active" : true,
-  "createdAt" : "2026-10-28 13:24:10",
-  "updatedAt" : "2026-10-28 13:24:10",
-  "name" : "dwad",
+  "createdAt" : "2026-10-28 14:10:49",
+  "updatedAt" : "2026-10-28 14:10:49",
+  "name" : "hello",
   "category" : "",
   "summary" : "",
   "description" : "",
@@ -265,10 +265,10 @@
   "meetingPoint" : "",
   "cancellationPolicy" : "",
   "bookingNote" : "",
+  "cardPriceFormatted" : "$0",
   "itemType" : "PACKAGE",
   "cardSubtitle" : "1 Days / 0 Nights • 0 Stops",
-  "cardPriceFormatted" : "$0",
+  "cardImage" : "",
   "cardCategory" : "",
-  "cardTitle" : "dwad",
-  "cardImage" : ""
+  "cardTitle" : "hello"
 } ]
