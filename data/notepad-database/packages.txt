@@ -7,15 +7,15 @@
   "category" : "Hill Country",
   "summary" : "Hidden highland roads, tea country, mountain villages and waterfalls.",
   "description" : "A complete high-country journey through Kandy, Knuckles, Riverston, Nuwara Eliya and Ella with scenic drives, cultural stops and outdoor experiences.",
-  "image" : "",
+  "image" : "/uploads/images/3d0e82376d8346e09f5227d736c397e1.jpg",
   "featured" : true,
   "days" : 7,
   "nights" : 6,
   "normalPrice" : 950.0,
   "price" : 790.0,
   "rating" : 4.9,
-  "cover" : "",
-  "images" : [ "", "", "" ],
+  "cover" : "/uploads/images/3d0e82376d8346e09f5227d736c397e1.jpg",
+  "images" : [ "/uploads/images/48ab0e5485e84ffca833310665de1f6d.jpg", "/uploads/images/4433bcbd19ed47388e8538a93743271a.jpg", "/uploads/images/dd07710399d641e29d270d2c2de2b8c4.jpg", "/uploads/images/dcb9ca09cb624279ac88667637f475a7.jpg" ],
   "destinations" : [ "Kandy", "Knuckles", "Riverston", "Nuwara Eliya", "Ella" ],
   "destinationIds" : [ 1, 5, 6 ],
   "transportId" : 1,
@@ -31,12 +31,21 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+<<<<<<< Updated upstream
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$790",
   "cardSubtitle" : "7 Days / 6 Nights • 5 Stops",
   "cardImage" : "",
   "cardCategory" : "Hill Country",
   "cardTitle" : "Secret Udrata"
+=======
+  "cardPriceFormatted" : "$790",
+  "itemType" : "PACKAGE",
+  "cardSubtitle" : "7 Days / 6 Nights • 5 Stops",
+  "cardTitle" : "Secret Udrata",
+  "cardCategory" : "Hill Country",
+  "cardImage" : "/uploads/images/3d0e82376d8346e09f5227d736c397e1.jpg"
+>>>>>>> Stashed changes
 }, {
   "id" : 2,
   "active" : true,
@@ -46,15 +55,15 @@
   "category" : "Culture",
   "summary" : "Sri Lanka's ancient capitals, sacred sites and iconic rock heritage.",
   "description" : "Explore Anuradhapura, Polonnaruwa, Sigiriya, Dambulla and Mihintale in one heritage-focused itinerary.",
-  "image" : "",
+  "image" : "/uploads/images/7a19424c69d94c69bc2a07ee2753a8e4.jpg",
   "featured" : true,
   "days" : 6,
   "nights" : 5,
   "normalPrice" : 840.0,
   "price" : 690.0,
   "rating" : 4.8,
-  "cover" : "",
-  "images" : [ "", "", "" ],
+  "cover" : "/uploads/images/7a19424c69d94c69bc2a07ee2753a8e4.jpg",
+  "images" : [ "/uploads/images/312dd2fcc0e447dcb8f285fdbeae58fe.jpg", "/uploads/images/294cbb1368ef4b7db5f9117829652ab2.jpg", "/uploads/images/b2d2c6e3fb5f4b4d8bf9b0aaec6c68fb.jpg", "/uploads/images/72e29b3775184f17851bba20ad1ab1d9.jpg" ],
   "destinations" : [ "Anuradhapura", "Polonnaruwa", "Sigiriya", "Dambulla", "Mihintale" ],
   "destinationIds" : [ 2, 3, 4 ],
   "transportId" : 4,
@@ -70,12 +79,21 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+<<<<<<< Updated upstream
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$690",
   "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
   "cardImage" : "",
   "cardCategory" : "Culture",
   "cardTitle" : "Ancient Ceylon"
+=======
+  "cardPriceFormatted" : "$690",
+  "itemType" : "PACKAGE",
+  "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
+  "cardTitle" : "Ancient Ceylon",
+  "cardCategory" : "Culture",
+  "cardImage" : "/uploads/images/7a19424c69d94c69bc2a07ee2753a8e4.jpg"
+>>>>>>> Stashed changes
 }, {
   "id" : 3,
   "active" : true,
@@ -85,15 +103,15 @@
   "category" : "Beach",
   "summary" : "Fort towns, tropical beaches, whale-watching waters and slow coastal evenings.",
   "description" : "A relaxed south-coast route through Galle, Unawatuna, Mirissa, Weligama and Tangalle.",
-  "image" : "",
+  "image" : "/uploads/images/a750b14818ce449caaacbddc73913367.png",
   "featured" : true,
   "days" : 5,
   "nights" : 4,
   "normalPrice" : 720.0,
   "price" : 575.0,
   "rating" : 4.7,
-  "cover" : "",
-  "images" : [ "", "", "" ],
+  "cover" : "/uploads/images/a750b14818ce449caaacbddc73913367.png",
+  "images" : [ "/uploads/images/ffe96cb219054657bc06d1e58b8582c8.jpg", "/uploads/images/f255aec12b6b47b6ace62594bfefaed9.jpg", "/uploads/images/3e82a7ab913c453a82f60976498442ad.jpg", "/uploads/images/8b2a48259bc74b45badad9553bb27fe2.jpg", "/uploads/images/ef0d577129504e90b592a10d94d1113a.jpg" ],
   "destinations" : [ "Galle", "Unawatuna", "Mirissa", "Weligama", "Tangalle" ],
   "destinationIds" : [ 7 ],
   "transportId" : 2,
@@ -109,12 +127,21 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+<<<<<<< Updated upstream
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$575",
   "cardSubtitle" : "5 Days / 4 Nights • 5 Stops",
   "cardImage" : "",
   "cardCategory" : "Beach",
   "cardTitle" : "Southern Paradise"
+=======
+  "cardPriceFormatted" : "$575",
+  "itemType" : "PACKAGE",
+  "cardSubtitle" : "5 Days / 4 Nights • 5 Stops",
+  "cardTitle" : "Southern Paradise",
+  "cardCategory" : "Beach",
+  "cardImage" : "/uploads/images/a750b14818ce449caaacbddc73913367.png"
+>>>>>>> Stashed changes
 }, {
   "id" : 4,
   "active" : true,
@@ -124,15 +151,15 @@
   "category" : "Wildlife",
   "summary" : "National parks, elephant country, forest reserves and safari experiences.",
   "description" : "A wildlife-focused journey combining Yala, Udawalawe, Minneriya, Bundala and Sinharaja.",
-  "image" : "",
+  "image" : "/uploads/images/78d2c21a4c234ce6aaca71511923f20c.jpg",
   "featured" : false,
   "days" : 6,
   "nights" : 5,
   "normalPrice" : 980.0,
   "price" : 815.0,
   "rating" : 4.9,
-  "cover" : "",
-  "images" : [ "", "", "" ],
+  "cover" : "/uploads/images/78d2c21a4c234ce6aaca71511923f20c.jpg",
+  "images" : [ "/uploads/images/4a268c3d29384eec8fd35e94761dcef3.jpg", "/uploads/images/8d5aa0666b8c48be9ae1eff7f7012f98.jpg", "/uploads/images/8713904eb5074bb49b999b57df647da8.jpg", "/uploads/images/0f3bd98665ef49beac6b521656f7641e.jpg" ],
   "destinations" : [ "Yala", "Udawalawe", "Minneriya", "Bundala", "Sinharaja" ],
   "destinationIds" : [ 4 ],
   "transportId" : 4,
@@ -148,12 +175,21 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+<<<<<<< Updated upstream
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$815",
   "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
   "cardImage" : "",
   "cardCategory" : "Wildlife",
   "cardTitle" : "Wild Ceylon"
+=======
+  "cardPriceFormatted" : "$815",
+  "itemType" : "PACKAGE",
+  "cardSubtitle" : "6 Days / 5 Nights • 5 Stops",
+  "cardTitle" : "Wild Ceylon",
+  "cardCategory" : "Wildlife",
+  "cardImage" : "/uploads/images/78d2c21a4c234ce6aaca71511923f20c.jpg"
+>>>>>>> Stashed changes
 }, {
   "id" : 5,
   "active" : true,
@@ -187,12 +223,21 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+<<<<<<< Updated upstream
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$720",
   "cardSubtitle" : "6 Days / 5 Nights • 4 Stops",
   "cardImage" : "",
   "cardCategory" : "Beach",
   "cardTitle" : "Eastern Escape"
+=======
+  "cardPriceFormatted" : "$720",
+  "itemType" : "PACKAGE",
+  "cardSubtitle" : "6 Days / 5 Nights • 4 Stops",
+  "cardTitle" : "Eastern Escape",
+  "cardCategory" : "Beach",
+  "cardImage" : ""
+>>>>>>> Stashed changes
 }, {
   "id" : 6,
   "active" : true,
@@ -226,10 +271,19 @@
   "meetingPoint" : "Colombo / Bandaranaike International Airport or an agreed pickup point",
   "cancellationPolicy" : "Booking changes and cancellations are reviewed by the administrator. Contact Serendib before cancelling a confirmed booking.",
   "bookingNote" : "Final pickup time, hotel allocation and vehicle details are confirmed after payment review.",
+<<<<<<< Updated upstream
   "itemType" : "PACKAGE",
   "cardPriceFormatted" : "$50",
   "cardSubtitle" : "5 Days / 4 Nights • 4 Stops",
   "cardImage" : "",
   "cardCategory" : "Culture",
   "cardTitle" : "Northern Heritage"
+=======
+  "cardPriceFormatted" : "$50",
+  "itemType" : "PACKAGE",
+  "cardSubtitle" : "5 Days / 4 Nights • 4 Stops",
+  "cardTitle" : "Northern Heritage",
+  "cardCategory" : "Culture",
+  "cardImage" : ""
+>>>>>>> Stashed changes
 } ]
