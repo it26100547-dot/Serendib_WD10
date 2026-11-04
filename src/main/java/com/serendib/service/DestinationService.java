@@ -22,6 +22,21 @@ public class DestinationService {
         return repository.save(destination);
     }
 
+    // adding upadate
+    public Destination update(Long id, Destination destination) {
+
+        Destination existing = repository.findById(id);
+        if (existing == null) {
+            throw new IllegalArgumentException("Destination with ID " + id + " not found.");
+        }
+
+        destination.setId(id);
+
+        validate(destination);
+
+        return repository.save(destination);
+    }
+
 
 
 

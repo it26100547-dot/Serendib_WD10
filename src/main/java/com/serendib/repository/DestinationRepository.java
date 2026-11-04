@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Reads and writes destinations.txt. Every CRUD step is visible in this class. */
+
 @Repository
 public class DestinationRepository {
     private final Path filePath;
@@ -66,7 +66,19 @@ public class DestinationRepository {
             destination.setId(nextId);
             items.add(destination);
         } else {
-            throw new IllegalArgumentException("Updating existing records is not implemented yet.");
+            // adding update operation
+            boolean updated = false;
+            for (int i = 0; i < items.size(); i++) {
+                if (destination.getId().equals(items.get(i).getId())) {
+                    items.set(i, destination);
+                    updated = true;
+                    break;
+                }
+            }
+
+            if (!updated) {
+                throw new IllegalArgumentException("Destination with ID " + destination.getId() + " not found.");
+            }
         }
 
         writeAll(items);
