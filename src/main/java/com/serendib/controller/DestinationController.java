@@ -35,6 +35,22 @@ public class DestinationController {
         return ResponseEntity.ok(ApiResponse.ok(item));
     }
 
+    // update operation
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> update(@PathVariable("id") Long id, @RequestBody Destination destination, HttpSession session) {
+
+        if (!sessionService.isAdmin(session)) {
+            return adminOnly(session);
+        }
+
+        try {
+            Destination updatedItem = service.update(id, destination);
+            return ResponseEntity.ok(ApiResponse.ok("Destination updated successfully.", updatedItem));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
     @PostMapping
     public ResponseEntity<ApiResponse> create(@RequestBody Destination destination, HttpSession session) {
         if (!sessionService.isAdmin(session))
