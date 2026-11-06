@@ -44,6 +44,13 @@ public class HotelService {
         hotelDetails.setId(id);
         return repository.save(hotelDetails);
     }
+    // Method to delete a hotel
+    public boolean delete(Long id) {
+        if (!repository.existsById(id)) {
+            throw new IllegalArgumentException("Hotel not found with ID: " + id);
+        }
+        return repository.deleteById(id);
+    }
 
 
 

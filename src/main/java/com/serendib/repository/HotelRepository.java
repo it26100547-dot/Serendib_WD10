@@ -84,6 +84,18 @@ public class HotelRepository {
         writeAll(items);
         return hotel;
     }
+    // Method to delete a hotel
+    public synchronized boolean deleteById(Long id) {
+        if (id == null) return false;
+
+        List<Hotel> items = findAll();
+        boolean removed = items.removeIf(item -> id.equals(item.getId()));
+
+        if (removed) {
+            writeAll(items);
+        }
+        return removed;
+    }
 
 
 
