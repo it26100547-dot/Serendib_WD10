@@ -66,7 +66,19 @@ public class HotelRepository {
             hotel.setId(nextId);
             items.add(hotel);
         } else {
-            throw new IllegalArgumentException("Updating existing records is not implemented yet.");
+            // add update operation to hotel
+            boolean found = false;
+            for (int i = 0; i < items.size(); i++) {
+                if (items.get(i).getId().equals(hotel.getId())) {
+                    items.set(i, hotel);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                throw new IllegalArgumentException("Hotel with ID " + hotel.getId() + " not found.");
+            }
         }
 
         writeAll(items);
