@@ -1,233 +1,241 @@
-
-[
-  {
-    "id": 1,
-    "name": "Ella Mist Retreat",
-    "destination": "Ella",
-    "rating": 4.7,
-    "stars": 4,
-    "fromPrice": 68.0,
-    "image": "",
-    "description": "Mountain views, breakfast and quick access to Ella attractions.",
-    "rooms": [
-      {
-        "name": "Standard",
-        "capacity": 2,
-        "price": 68.0,
-        "description": "Standard accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Deluxe View",
-        "capacity": 2,
-        "price": 92.0,
-        "description": "Deluxe View accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Family",
-        "capacity": 4,
-        "price": 135.0,
-        "description": "Family accommodation for up to 4 guests.",
-        "image": ""
-      }
-    ],
-    "featured": true,
-    "active": true,
-    "images": [""],
-    "amenities": [
-      "Wi-Fi",
-      "Breakfast",
-      "Air conditioning",
-      "Serendib booking support"
-    ],
-    "address": "Ella, Sri Lanka",
-    "checkIn": "14:00",
-    "checkOut": "11:00",
-    "cancellationPolicy": "Cancellation is subject to admin/hotel approval after booking confirmation."
-  },
-  {
-    "id": 2,
-    "name": "Kandy Lake Grand",
-    "destination": "Kandy",
-    "rating": 4.6,
-    "stars": 4,
-    "fromPrice": 82.0,
-    "image": "",
-    "description": "Central Kandy stay with city access and lake views.",
-    "rooms": [
-      {
-        "name": "Superior",
-        "capacity": 2,
-        "price": 82.0,
-        "description": "Superior accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Lake View",
-        "capacity": 2,
-        "price": 110.0,
-        "description": "Lake View accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Family Suite",
-        "capacity": 4,
-        "price": 160.0,
-        "description": "Family Suite accommodation for up to 4 guests.",
-        "image": ""
-      }
-    ],
-    "featured": true,
-    "active": true,
-    "images": [""],
-    "amenities": [
-      "Wi-Fi",
-      "Breakfast",
-      "Air conditioning",
-      "Serendib booking support"
-    ],
-    "address": "Kandy, Sri Lanka",
-    "checkIn": "14:00",
-    "checkOut": "11:00",
-    "cancellationPolicy": "Cancellation is subject to admin/hotel approval after booking confirmation."
-  },
-  {
-    "id": 3,
-    "name": "Mirissa Ocean House",
-    "destination": "Mirissa",
-    "rating": 4.8,
-    "stars": 5,
-    "fromPrice": 115.0,
-    "image": "",
-    "description": "Beachfront resort for south-coast relaxation.",
-    "rooms": [
-      {
-        "name": "Garden",
-        "capacity": 2,
-        "price": 115.0,
-        "description": "Garden accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Ocean",
-        "capacity": 2,
-        "price": 150.0,
-        "description": "Ocean accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Villa",
-        "capacity": 4,
-        "price": 230.0,
-        "description": "Villa accommodation for up to 4 guests.",
-        "image": ""
-      }
-    ],
-    "featured": true,
-    "active": true,
-    "images": [""],
-    "amenities": [
-      "Wi-Fi",
-      "Breakfast",
-      "Air conditioning",
-      "Serendib booking support"
-    ],
-    "address": "Mirissa, Sri Lanka",
-    "checkIn": "14:00",
-    "checkOut": "11:00",
-    "cancellationPolicy": "Cancellation is subject to admin/hotel approval after booking confirmation."
-  },
-  {
-    "id": 4,
-    "name": "Sigiriya Rock Lodge",
-    "destination": "Sigiriya",
-    "rating": 4.5,
-    "stars": 4,
-    "fromPrice": 74.0,
-    "image": "",
-    "description": "Nature-focused lodge close to Sigiriya and Dambulla.",
-    "rooms": [
-      {
-        "name": "Classic",
-        "capacity": 2,
-        "price": 74.0,
-        "description": "Classic accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Rock View",
-        "capacity": 2,
-        "price": 98.0,
-        "description": "Rock View accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Family",
-        "capacity": 4,
-        "price": 145.0,
-        "description": "Family accommodation for up to 4 guests.",
-        "image": ""
-      }
-    ],
-    "featured": false,
-    "active": true,
-    "images": [""],
-    "amenities": [
-      "Wi-Fi",
-      "Breakfast",
-      "Air conditioning",
-      "Serendib booking support"
-    ],
-    "address": "Sigiriya, Sri Lanka",
-    "checkIn": "14:00",
-    "checkOut": "11:00",
-    "cancellationPolicy": "Cancellation is subject to admin/hotel approval after booking confirmation."
-  },
-  {
-    "id": 5,
-    "name": "Trinco Blue Bay",
-    "destination": "Trincomalee",
-    "rating": 4.6,
-    "stars": 4,
-    "fromPrice": 88.0,
-    "image": "",
-    "description": "Beach hotel near Nilaveli and east-coast attractions.",
-    "rooms": [
-      {
-        "name": "Standard",
-        "capacity": 2,
-        "price": 88.0,
-        "description": "Standard accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Sea View",
-        "capacity": 2,
-        "price": 120.0,
-        "description": "Sea View accommodation for up to 2 guests.",
-        "image": ""
-      },
-      {
-        "name": "Family",
-        "capacity": 4,
-        "price": 170.0,
-        "description": "Family accommodation for up to 4 guests.",
-        "image": ""
-      }
-    ],
-    "featured": false,
-    "active": true,
-    "images": [""],
-    "amenities": [
-      "Wi-Fi",
-      "Breakfast",
-      "Air conditioning",
-      "Serendib booking support"
-    ],
-    "address": "Trincomalee, Sri Lanka",
-    "checkIn": "14:00",
-    "checkOut": "11:00",
-    "cancellationPolicy": "Cancellation is subject to admin/hotel approval after booking confirmation."
-  }
-]
+[ {
+  "id" : 1,
+  "active" : true,
+  "createdAt" : "2026-11-05 21:32:53",
+  "updatedAt" : "2026-11-05 21:32:53",
+  "name" : "Ella Mist Retreat",
+  "category" : null,
+  "summary" : null,
+  "description" : "Mountain views, breakfast and quick access to Ella attractions.",
+  "image" : "",
+  "featured" : true,
+  "destination" : "Ella",
+  "rating" : 4.7,
+  "stars" : 4,
+  "fromPrice" : 68.0,
+  "rooms" : [ {
+    "name" : "Standard",
+    "capacity" : 2,
+    "price" : 68.0,
+    "description" : "Standard accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Deluxe View",
+    "capacity" : 2,
+    "price" : 92.0,
+    "description" : "Deluxe View accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Family",
+    "capacity" : 4,
+    "price" : 135.0,
+    "description" : "Family accommodation for up to 4 guests.",
+    "image" : ""
+  } ],
+  "images" : [ "" ],
+  "amenities" : [ "Wi-Fi", "Breakfast", "Air conditioning", "Serendib booking support" ],
+  "address" : "Ella, Sri Lanka",
+  "checkIn" : "14:00",
+  "checkOut" : "11:00",
+  "cancellationPolicy" : "Cancellation is subject to admin/hotel approval after booking confirmation.",
+  "contactPhone" : null,
+  "from" : 68.0,
+  "itemType" : "HOTEL",
+  "cardSubtitle" : "★ 4.7 • Ella",
+  "cardPriceFormatted" : "From $68",
+  "cardImage" : "",
+  "cardTitle" : "Ella Mist Retreat",
+  "cardCategory" : "General"
+}, {
+  "id" : 2,
+  "active" : true,
+  "createdAt" : "2026-11-05 21:32:53",
+  "updatedAt" : "2026-11-05 21:32:53",
+  "name" : "Kandy Lake Grand",
+  "category" : null,
+  "summary" : null,
+  "description" : "Central Kandy stay with city access and lake views.",
+  "image" : "",
+  "featured" : true,
+  "destination" : "Kandy",
+  "rating" : 4.6,
+  "stars" : 4,
+  "fromPrice" : 82.0,
+  "rooms" : [ {
+    "name" : "Superior",
+    "capacity" : 2,
+    "price" : 82.0,
+    "description" : "Superior accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Lake View",
+    "capacity" : 2,
+    "price" : 110.0,
+    "description" : "Lake View accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Family Suite",
+    "capacity" : 4,
+    "price" : 160.0,
+    "description" : "Family Suite accommodation for up to 4 guests.",
+    "image" : ""
+  } ],
+  "images" : [ "" ],
+  "amenities" : [ "Wi-Fi", "Breakfast", "Air conditioning", "Serendib booking support" ],
+  "address" : "Kandy, Sri Lanka",
+  "checkIn" : "14:00",
+  "checkOut" : "11:00",
+  "cancellationPolicy" : "Cancellation is subject to admin/hotel approval after booking confirmation.",
+  "contactPhone" : null,
+  "from" : 82.0,
+  "itemType" : "HOTEL",
+  "cardSubtitle" : "★ 4.6 • Kandy",
+  "cardPriceFormatted" : "From $82",
+  "cardImage" : "",
+  "cardTitle" : "Kandy Lake Grand",
+  "cardCategory" : "General"
+}, {
+  "id" : 3,
+  "active" : true,
+  "createdAt" : "2026-11-05 21:32:53",
+  "updatedAt" : "2026-11-05 21:32:53",
+  "name" : "Mirissa Ocean House",
+  "category" : null,
+  "summary" : null,
+  "description" : "Beachfront resort for south-coast relaxation.",
+  "image" : "",
+  "featured" : true,
+  "destination" : "Mirissa",
+  "rating" : 4.8,
+  "stars" : 5,
+  "fromPrice" : 115.0,
+  "rooms" : [ {
+    "name" : "Garden",
+    "capacity" : 2,
+    "price" : 115.0,
+    "description" : "Garden accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Ocean",
+    "capacity" : 2,
+    "price" : 150.0,
+    "description" : "Ocean accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Villa",
+    "capacity" : 4,
+    "price" : 230.0,
+    "description" : "Villa accommodation for up to 4 guests.",
+    "image" : ""
+  } ],
+  "images" : [ "" ],
+  "amenities" : [ "Wi-Fi", "Breakfast", "Air conditioning", "Serendib booking support" ],
+  "address" : "Mirissa, Sri Lanka",
+  "checkIn" : "14:00",
+  "checkOut" : "11:00",
+  "cancellationPolicy" : "Cancellation is subject to admin/hotel approval after booking confirmation.",
+  "contactPhone" : null,
+  "from" : 115.0,
+  "itemType" : "HOTEL",
+  "cardSubtitle" : "★ 4.8 • Mirissa",
+  "cardPriceFormatted" : "From $115",
+  "cardImage" : "",
+  "cardTitle" : "Mirissa Ocean House",
+  "cardCategory" : "General"
+}, {
+  "id" : 4,
+  "active" : true,
+  "createdAt" : "2026-11-05 21:32:53",
+  "updatedAt" : "2026-11-05 21:32:53",
+  "name" : "Sigiriya Rock Lodge",
+  "category" : null,
+  "summary" : null,
+  "description" : "Nature-focused lodge close to Sigiriya and Dambulla.",
+  "image" : "",
+  "featured" : false,
+  "destination" : "Sigiriya",
+  "rating" : 4.5,
+  "stars" : 4,
+  "fromPrice" : 74.0,
+  "rooms" : [ {
+    "name" : "Classic",
+    "capacity" : 2,
+    "price" : 74.0,
+    "description" : "Classic accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Rock View",
+    "capacity" : 2,
+    "price" : 98.0,
+    "description" : "Rock View accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Family",
+    "capacity" : 4,
+    "price" : 145.0,
+    "description" : "Family accommodation for up to 4 guests.",
+    "image" : ""
+  } ],
+  "images" : [ "" ],
+  "amenities" : [ "Wi-Fi", "Breakfast", "Air conditioning", "Serendib booking support" ],
+  "address" : "Sigiriya, Sri Lanka",
+  "checkIn" : "14:00",
+  "checkOut" : "11:00",
+  "cancellationPolicy" : "Cancellation is subject to admin/hotel approval after booking confirmation.",
+  "contactPhone" : null,
+  "from" : 74.0,
+  "itemType" : "HOTEL",
+  "cardSubtitle" : "★ 4.5 • Sigiriya",
+  "cardPriceFormatted" : "From $74",
+  "cardImage" : "",
+  "cardTitle" : "Sigiriya Rock Lodge",
+  "cardCategory" : "General"
+}, {
+  "id" : 5,
+  "active" : true,
+  "createdAt" : "2026-11-05 21:32:19",
+  "updatedAt" : "2026-11-05 21:32:19",
+  "name" : "Trinco Blue Bay",
+  "category" : "Hotel",
+  "summary" : "",
+  "description" : "Beach hotel near Nilaveli and east-coast attractions.",
+  "image" : "",
+  "featured" : false,
+  "destination" : "Trincomalee",
+  "rating" : 4.6,
+  "stars" : 4,
+  "fromPrice" : 88.0,
+  "rooms" : [ {
+    "name" : "Standard",
+    "capacity" : 2,
+    "price" : 88.0,
+    "description" : "Standard accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Sea View",
+    "capacity" : 2,
+    "price" : 120.0,
+    "description" : "Sea View accommodation for up to 2 guests.",
+    "image" : ""
+  }, {
+    "name" : "Family",
+    "capacity" : 4,
+    "price" : 170.0,
+    "description" : "Family accommodation for up to 4 guests.",
+    "image" : ""
+  } ],
+  "images" : [ ],
+  "amenities" : [ "Wi-Fi", "Breakfast", "Air conditioning", "Serendib booking support" ],
+  "address" : "Trincomalee, Sri Lanka",
+  "checkIn" : "14:00",
+  "checkOut" : "11:00",
+  "cancellationPolicy" : "Cancellation is subject to admin/hotel approval after booking confirmation.",
+  "contactPhone" : "",
+  "from" : 88.0,
+  "itemType" : "HOTEL",
+  "cardSubtitle" : "★ 4.6 • Trincomalee",
+  "cardPriceFormatted" : "From $88",
+  "cardImage" : "",
+  "cardTitle" : "Trinco Blue Bay",
+  "cardCategory" : "Hotel"
+} ]

@@ -60,6 +60,20 @@ public class HotelController {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
+    // DELETE to delete a hotel
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> delete(@PathVariable("id") Long id, HttpSession session) {
+
+        if (!sessionService.isAdmin(session)) {
+            return adminOnly(session);
+        }
+        try {
+            service.delete(id);
+            return ResponseEntity.ok(ApiResponse.ok("Hotel deleted successfully.", null));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
 
 
 
