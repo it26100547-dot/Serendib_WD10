@@ -46,6 +46,20 @@ public class HotelController {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
+    // PUT to update a hotel
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> update(@PathVariable("id") Long id, @RequestBody Hotel hotel, HttpSession session) {
+
+        if (!sessionService.isAdmin(session)) {
+            return adminOnly(session);
+        }
+        try {
+            Hotel updatedHotel = service.update(id, hotel);
+            return ResponseEntity.ok(ApiResponse.ok("Hotel updated successfully.", updatedHotel));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
 
 
 
