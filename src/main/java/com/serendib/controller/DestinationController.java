@@ -51,6 +51,23 @@ public class DestinationController {
         }
     }
 
+    // DELETE destination
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> delete(@PathVariable("id") Long id, HttpSession session) {
+
+        if (!sessionService.isAdmin(session)) {
+            return adminOnly(session);
+        }
+
+        boolean isDeleted = service.delete(id);
+        if (isDeleted) {
+            return ResponseEntity.ok(ApiResponse.ok("Destination deleted successfully.", null));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error("Destination not found."));
+        }
+    }
+
+
     @PostMapping
     public ResponseEntity<ApiResponse> create(@RequestBody Destination destination, HttpSession session) {
         if (!sessionService.isAdmin(session))

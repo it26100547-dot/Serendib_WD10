@@ -85,6 +85,32 @@ public class DestinationRepository {
         return destination;
     }
 
+    // delete method
+    public synchronized boolean deleteById(Long id) {
+        if (id == null) {
+            return false;
+        }
+
+        List<Destination> items = findAll();
+        boolean removed = false;
+
+        // remove the matching destination
+        for (int i = 0; i < items.size(); i++) {
+            if (id.equals(items.get(i).getId())) {
+                items.remove(i);
+                removed = true;
+                break;
+            }
+        }
+
+
+        if (removed) {
+            writeAll(items);
+        }
+
+        return removed;
+    }
+
 
 
     public boolean existsById(Long id) { return findById(id) != null; }

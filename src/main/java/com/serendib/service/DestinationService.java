@@ -37,8 +37,14 @@ public class DestinationService {
         return repository.save(destination);
     }
 
+    // adding delete
+    public boolean delete(Long id) {
 
-
+        if (!repository.existsById(id)) {
+            return false;
+        }
+        return repository.deleteById(id);
+    }
 
 
     private void validate(Destination destination) {

@@ -49,12 +49,12 @@
   "suggestedDays" : 2,
   "travelTips" : "Allow enough time to explore Kandy and confirm transport before the travel date.",
   "cardSubtitle" : "Central Region",
-  "cardPriceFormatted" : "6 places",
   "itemType" : "DESTINATION",
   "attractionCount" : 6,
+  "cardPriceFormatted" : "6 places",
   "cardTitle" : "Kandy",
-  "cardCategory" : "Culture & Hills",
-  "cardImage" : "https://as1.ftcdn.net/v2/jpg/03/64/95/12/1000_F_364951258_xLzCW41kr5AV7OXdVv49ufv6u0XL3nqq.jpg"
+  "cardImage" : "https://as1.ftcdn.net/v2/jpg/03/64/95/12/1000_F_364951258_xLzCW41kr5AV7OXdVv49ufv6u0XL3nqq.jpg",
+  "cardCategory" : "Culture & Hills"
 }, {
   "id" : 2,
   "active" : true,
@@ -106,12 +106,12 @@
   "suggestedDays" : 2,
   "travelTips" : "Allow enough time to explore Anuradhapura and confirm transport before the travel date.",
   "cardSubtitle" : "North Central Region",
-  "cardPriceFormatted" : "6 places",
   "itemType" : "DESTINATION",
   "attractionCount" : 6,
+  "cardPriceFormatted" : "6 places",
   "cardTitle" : "Anuradhapura",
-  "cardCategory" : "Ancient",
-  "cardImage" : ""
+  "cardImage" : "",
+  "cardCategory" : "Ancient"
 }, {
   "id" : 3,
   "active" : true,
@@ -163,12 +163,12 @@
   "suggestedDays" : 2,
   "travelTips" : "Allow enough time to explore Polonnaruwa and confirm transport before the travel date.",
   "cardSubtitle" : "North Central Region",
-  "cardPriceFormatted" : "6 places",
   "itemType" : "DESTINATION",
   "attractionCount" : 6,
+  "cardPriceFormatted" : "6 places",
   "cardTitle" : "Polonnaruwa",
-  "cardCategory" : "Ancient",
-  "cardImage" : ""
+  "cardImage" : "",
+  "cardCategory" : "Ancient"
 }, {
   "id" : 4,
   "active" : true,
@@ -220,12 +220,12 @@
   "suggestedDays" : 2,
   "travelTips" : "Allow enough time to explore Sigiriya & Dambulla and confirm transport before the travel date.",
   "cardSubtitle" : "Central Region",
-  "cardPriceFormatted" : "6 places",
   "itemType" : "DESTINATION",
   "attractionCount" : 6,
+  "cardPriceFormatted" : "6 places",
   "cardTitle" : "Sigiriya & Dambulla",
-  "cardCategory" : "Heritage",
-  "cardImage" : ""
+  "cardImage" : "",
+  "cardCategory" : "Heritage"
 }, {
   "id" : 5,
   "active" : true,
@@ -277,12 +277,12 @@
   "suggestedDays" : 2,
   "travelTips" : "Allow enough time to explore Nuwara Eliya and confirm transport before the travel date.",
   "cardSubtitle" : "Central Highlands Region",
-  "cardPriceFormatted" : "6 places",
   "itemType" : "DESTINATION",
   "attractionCount" : 6,
+  "cardPriceFormatted" : "6 places",
   "cardTitle" : "Nuwara Eliya",
-  "cardCategory" : "Hill Country",
-  "cardImage" : ""
+  "cardImage" : "",
+  "cardCategory" : "Hill Country"
 }, {
   "id" : 6,
   "active" : true,
@@ -334,12 +334,12 @@
   "suggestedDays" : 2,
   "travelTips" : "Allow enough time to explore Ella and confirm transport before the travel date.",
   "cardSubtitle" : "Uva Region",
-  "cardPriceFormatted" : "6 places",
   "itemType" : "DESTINATION",
   "attractionCount" : 6,
+  "cardPriceFormatted" : "6 places",
   "cardTitle" : "Ella",
-  "cardCategory" : "Adventure",
-  "cardImage" : ""
+  "cardImage" : "",
+  "cardCategory" : "Adventure"
 }, {
   "id" : 7,
   "active" : true,
@@ -391,12 +391,12 @@
   "suggestedDays" : 2,
   "travelTips" : "Allow enough time to explore Galle & South Coast and confirm transport before the travel date.",
   "cardSubtitle" : "Southern Region",
-  "cardPriceFormatted" : "6 places",
   "itemType" : "DESTINATION",
   "attractionCount" : 6,
+  "cardPriceFormatted" : "6 places",
   "cardTitle" : "Galle & South Coast",
-  "cardCategory" : "Beach & Heritage",
-  "cardImage" : ""
+  "cardImage" : "",
+  "cardCategory" : "Beach & Heritage"
 }, {
   "id" : 8,
   "active" : true,
@@ -448,12 +448,12 @@
   "suggestedDays" : 2,
   "travelTips" : "Allow enough time to explore Trincomalee & East Coast and confirm transport before the travel date.",
   "cardSubtitle" : "Eastern Region",
-  "cardPriceFormatted" : "6 places",
   "itemType" : "DESTINATION",
   "attractionCount" : 6,
+  "cardPriceFormatted" : "6 places",
   "cardTitle" : "Trincomalee & East Coast",
-  "cardCategory" : "Beach",
-  "cardImage" : ""
+  "cardImage" : "",
+  "cardCategory" : "Beach"
 }, {
   "id" : 9,
   "active" : true,
@@ -505,10 +505,10 @@
   "suggestedDays" : 2,
   "travelTips" : "Allow enough time to explore Jaffna & North and confirm transport before the travel date.",
   "cardSubtitle" : "Northern Region",
-  "cardPriceFormatted" : "6 places",
   "itemType" : "DESTINATION",
   "attractionCount" : 6,
+  "cardPriceFormatted" : "6 places",
   "cardTitle" : "Jaffna & North",
-  "cardCategory" : "Culture",
-  "cardImage" : ""
+  "cardImage" : "",
+  "cardCategory" : "Culture"
 } ]
