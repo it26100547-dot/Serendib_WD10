@@ -33,7 +33,19 @@ public class BookingService {
         validate(booking);
         return repository.save(booking);
     }
+    // add update oeperation
+    public Booking update(Long id, Booking updatedBooking) {
+        Booking existing = repository.findById(id);
+        if (existing == null) {
+            throw new IllegalArgumentException("Booking with ID " + id + " does not exist.");
+        }
 
+
+        updatedBooking.setId(id);
+        validate(updatedBooking);
+
+        return repository.save(updatedBooking);
+    }
 
 
 

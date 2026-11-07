@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Reads and writes bookings.txt. Every CRUD step is visible in this class. */
+
 @Repository
 public class BookingRepository {
     private final Path filePath;
@@ -61,12 +61,24 @@ public class BookingRepository {
         if (booking.getId() == null || booking.getId() <= 0) {
             long nextId = 1;
             for (Booking item : items) {
-                if (item.getId() != null && item.getId() >= nextId) nextId = item.getId() + 1;
+                if (item.getId() != null && item.getId() >= nextId)
+                    nextId = item.getId() + 1;
             }
             booking.setId(nextId);
             items.add(booking);
         } else {
-            throw new IllegalArgumentException("Updating existing records is not implemented yet.");
+            // adding update operation
+            boolean found = false;
+            for (int i = 0; i < items.size(); i++) {
+                if (items.get(i).getId().equals(booking.getId())) {
+                    items.set(i, booking);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                throw new IllegalArgumentException("Cannot update. Booking not found with ID: " + booking.getId());
+            }
         }
 
         writeAll(items);
