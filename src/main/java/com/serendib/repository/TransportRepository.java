@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Reads and writes transports.txt. Every CRUD step is visible in this class. */
+
 @Repository
 public class TransportRepository {
     private final Path filePath;
@@ -66,8 +66,20 @@ public class TransportRepository {
             transport.setId(nextId);
             items.add(transport);
         } else {
-            throw new IllegalArgumentException("Updating existing records is not implemented yet.");
+           //adding update operation
+            boolean found = false;
+            for (int i = 0; i < items.size(); i++) {
+                if (transport.getId().equals(items.get(i).getId())) {
+                    items.set(i, transport);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                items.add(transport);
+            }
         }
+
 
         writeAll(items);
         return transport;

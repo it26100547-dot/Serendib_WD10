@@ -46,6 +46,19 @@ public class TransportController {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
+    // Adding update operation
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> update(@PathVariable("id") Long id, @RequestBody Transport transport, HttpSession session) {
+        if (!sessionService.isAdmin(session)) {
+            return adminOnly(session);
+        }
+        try {
+            Transport updated = service.update(id, transport);
+            return ResponseEntity.ok(ApiResponse.ok("Transport updated successfully.", updated));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
 
 
 

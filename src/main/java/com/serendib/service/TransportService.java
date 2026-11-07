@@ -17,7 +17,19 @@ public class TransportService {
     public long count() { return repository.count(); }
 
     public Transport create(Transport transport) { transport.setId(null); validate(transport); return repository.save(transport); }
+    //Adding update operation
+    public Transport update(Long id, Transport transport) {
+        Transport existing = repository.findById(id);
+        if (existing == null) {
+            throw new IllegalArgumentException("Transport with ID " + id + " does not exist.");
+        }
 
+
+        transport.setId(id);
+        validate(transport);
+
+        return repository.save(transport);
+    }
 
 
     private void validate(Transport transport) {
