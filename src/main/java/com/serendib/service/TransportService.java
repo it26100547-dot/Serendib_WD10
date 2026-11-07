@@ -30,7 +30,13 @@ public class TransportService {
 
         return repository.save(transport);
     }
-
+    //Adding delete operation
+    public boolean delete(Long id) {
+        if (!repository.existsById(id)) {
+            throw new IllegalArgumentException("Transport with ID " + id + " does not exist.");
+        }
+        return repository.deleteById(id);
+    }
 
     private void validate(Transport transport) {
         if (transport.getName() == null || transport.getName().isBlank()) throw new IllegalArgumentException("Vehicle name is required.");

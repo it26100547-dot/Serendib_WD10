@@ -84,7 +84,16 @@ public class TransportRepository {
         writeAll(items);
         return transport;
     }
-
+    // Adding delete operation
+    public synchronized boolean deleteById(Long id) {
+        if (id == null) return false;
+        List<Transport> items = findAll();
+        boolean removed = items.removeIf(item -> id.equals(item.getId()));
+        if (removed) {
+            writeAll(items);
+        }
+        return removed;
+    }
 
 
     public boolean existsById(Long id) { return findById(id) != null; }
