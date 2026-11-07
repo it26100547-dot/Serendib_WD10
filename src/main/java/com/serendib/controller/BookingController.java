@@ -149,7 +149,27 @@ public class BookingController {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
+    //Adding Delete Opearation
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> deleteBooking(@PathVariable("id") Long id, HttpSession session) {
+        User user = sessionService.getCurrentUser(session);
+        if (user == null) {
+            return unauthorizedBooking();
+        }
 
+        try {
+
+            getOwnedBooking(id, user);
+
+            boolean deleted = bookingService.delete(id);
+            if (deleted) {
+                return ResponseEntity.ok(ApiResponse.ok("Booking deleted successfully.", null));
+            }
+            return ResponseEntity.badRequest().body(ApiResponse.error("Failed to delete booking."));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
 
 
 
