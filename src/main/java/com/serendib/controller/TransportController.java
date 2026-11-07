@@ -59,7 +59,19 @@ public class TransportController {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
-
+    //Adding delete operation
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> delete(@PathVariable("id") Long id, HttpSession session) {
+        if (!sessionService.isAdmin(session)) {
+            return adminOnly(session);
+        }
+        try {
+            service.delete(id);
+            return ResponseEntity.ok(ApiResponse.ok("Transport deleted successfully.", null));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
 
 
     private ResponseEntity<ApiResponse> adminOnly(HttpSession session) {
