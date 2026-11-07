@@ -61,6 +61,19 @@ public class AdminBookingController {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
+    //Adding Delete Opearation
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> adminDeleteBooking(@PathVariable("id") Long id, HttpSession session) {
+        if (!sessionService.isAdmin(session)) {
+            return adminOnly(session);
+        }
+
+        boolean deleted = bookingService.delete(id);
+        if (deleted) {
+            return ResponseEntity.ok(ApiResponse.ok("Booking deleted by Admin.", null));
+        }
+        return ResponseEntity.badRequest().body(ApiResponse.error("Booking not found or failed to delete."));
+    }
 
     private ResponseEntity<ApiResponse> adminOnly(HttpSession session) {
         if (sessionService.getCurrentUser(session) == null) {

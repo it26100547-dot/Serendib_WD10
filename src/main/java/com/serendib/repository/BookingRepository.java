@@ -84,6 +84,15 @@ public class BookingRepository {
         writeAll(items);
         return booking;
     }
+    //Adding Delete Opearation
+    public synchronized boolean deleteById(Long id) {
+        List<Booking> items = findAll();
+        boolean removed = items.removeIf(item -> item.getId().equals(id));
+        if (removed) {
+            writeAll(items);
+        }
+        return removed;
+    }
 
 
 

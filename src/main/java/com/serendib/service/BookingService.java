@@ -46,6 +46,14 @@ public class BookingService {
 
         return repository.save(updatedBooking);
     }
+    //Adding Delete Opearation
+    public boolean delete(Long id) {
+        if (!repository.existsById(id)) {
+            throw new IllegalArgumentException("Booking with ID " + id + " does not exist.");
+        }
+        return repository.deleteById(id);
+    }
+
 
 
 
