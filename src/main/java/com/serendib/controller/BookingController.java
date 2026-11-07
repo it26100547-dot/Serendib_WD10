@@ -28,10 +28,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-/**
- * Booking controller kept intentionally simple and explicit.
- * A logged-in user can create/view/pay/cancel their own bookings.
- */
+
 @RestController
 @RequestMapping("/api/bookings")
 public class BookingController {
@@ -121,7 +118,37 @@ public class BookingController {
             return ResponseEntity.notFound().build();
         }
     }
+    //Adding Update Operation
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> updateBooking(@PathVariable("id") Long id,
+                                                     @RequestBody Booking updatedBooking,
+                                                     HttpSession session) {
+        User user = sessionService.getCurrentUser(session);
+        if (user == null) {
+            return unauthorizedBooking();
+        }
 
+        try {
+
+            Booking existing = getOwnedBooking(id, user);
+
+
+            updatedBooking.setUserId(user.getId());
+            updatedBooking.setUserEmail(user.getEmail());
+            updatedBooking.setCustomerName(user.getFullName());
+            if (updatedBooking.getPhone() == null || updatedBooking.getPhone().isBlank()) {
+                updatedBooking.setPhone(user.getPhone());
+            }
+
+
+            calculatePrice(updatedBooking);
+
+            Booking saved = bookingService.update(id, updatedBooking);
+            return ResponseEntity.ok(ApiResponse.ok("Booking updated successfully.", saved));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
 
 
 
