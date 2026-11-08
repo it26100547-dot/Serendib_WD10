@@ -13,6 +13,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/admin/uploads")
 public class UploadController {
+
     private final FileStorageService fileStorageService;
     private final SessionService sessionService;
     public UploadController(FileStorageService fileStorageService, SessionService sessionService) {
@@ -22,15 +23,24 @@ public class UploadController {
 
     @PostMapping(consumes = "multipart/form-data")
     public ResponseEntity<ApiResponse> upload(@RequestPart("file") MultipartFile file, HttpSession session) {
+
         if (!sessionService.isAdmin(session)) {
+
             if (sessionService.getCurrentUser(session) == null)
+
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("Please sign in first."));
+
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ApiResponse.error("Administrator permission is required."));
+
         }
         try {
+
             return ResponseEntity.ok(ApiResponse.ok("Image uploaded.", Map.of("url", fileStorageService.saveImage(file))));
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+
         }
     }
 }

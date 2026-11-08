@@ -20,9 +20,7 @@ public class AdminApiController {
     private final BookingService bookingService;
     private final SessionService sessionService;
 
-    public AdminApiController(TourPackageService packageService, DestinationService destinationService,
-                              HotelService hotelService, TransportService transportService,
-                              UserService userService, BookingService bookingService, SessionService sessionService) {
+    public AdminApiController(TourPackageService packageService, DestinationService destinationService,HotelService hotelService, TransportService transportService, UserService userService, BookingService bookingService, SessionService sessionService) {
         this.packageService = packageService;
         this.destinationService = destinationService;
         this.hotelService = hotelService;
@@ -39,8 +37,7 @@ public class AdminApiController {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("Please sign in first."));
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ApiResponse.error("Administrator permission is required."));
         }
-        AdminStatsDto stats = new AdminStatsDto(packageService.count(), destinationService.count(), hotelService.count(),
-                transportService.count(), userService.count());
+        AdminStatsDto stats = new AdminStatsDto(packageService.count(), destinationService.count(), hotelService.count(), transportService.count(), userService.count());
         stats.setTotalBookings(bookingService.count());
         return ResponseEntity.ok(ApiResponse.ok(stats));
     }

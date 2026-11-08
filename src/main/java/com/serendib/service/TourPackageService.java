@@ -11,12 +11,14 @@ import java.util.List;
 
 @Service
 public class TourPackageService {
+
     private final TourPackageRepository repository;
     private final TransportRepository transportRepository;
     private final HotelRepository hotelRepository;
 
-    public TourPackageService(TourPackageRepository repository, TransportRepository transportRepository,
-                              HotelRepository hotelRepository) {
+
+    public TourPackageService(TourPackageRepository repository, TransportRepository transportRepository,HotelRepository hotelRepository) {
+
         this.repository = repository;
         this.transportRepository = transportRepository;
         this.hotelRepository = hotelRepository;
@@ -45,7 +47,7 @@ public class TourPackageService {
         p.setId(null); validateAndFillNames(p); return repository.save(p);
     }
 
-    // Method to update an existing package
+    // Method to update
     public TourPackage update(Long id, TourPackage updatedPackage) {
         TourPackage existingPackage = repository.findById(id);
 
@@ -53,16 +55,19 @@ public class TourPackageService {
             throw new IllegalArgumentException("Tour package with ID " + id + " does not exist.");
         }
 
-        // Ensure ID stays the same
+
         updatedPackage.setId(id);
 
-        // Validate basic rules and map transport/hotel names
+
         validateAndFillNames(updatedPackage);
 
         return repository.save(updatedPackage);
     }
+
     // Method to delete a package by ID
+
     public boolean delete(Long id) {
+
         TourPackage existingPackage = repository.findById(id);
 
         if (existingPackage == null) {
@@ -76,20 +81,27 @@ public class TourPackageService {
 
 
     private void validateAndFillNames(TourPackage p) {
+
         if (p.getName() == null || p.getName().isBlank())
             throw new IllegalArgumentException("Package name is required.");
+
         if (p.getPrice() < 0)
             throw new IllegalArgumentException("Package price cannot be negative.");
+
         if (p.getNormalPrice() < p.getPrice())
             p.setNormalPrice(p.getPrice());
 
         if (p.getTransportId() != null) {
+
             Transport t = transportRepository.findById(p.getTransportId());
             if (t != null) p.setTransportName(t.getName());
+
         }
         if (p.getHotelId() != null) {
+
             Hotel h = hotelRepository.findById(p.getHotelId());
             if (h != null) p.setHotelName(h.getName());
+
         }
     }
 }

@@ -23,15 +23,19 @@ public class DestinationController {
 
     @GetMapping
     public ResponseEntity<ApiResponse> getAll(@RequestParam(name = "region", required = false) String region) {
+
         List<Destination> list = (region == null || region.isBlank()) ? service.getAll() : service.getByRegion(region);
         return ResponseEntity.ok(ApiResponse.ok(list));
+
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getById(@PathVariable("id") Long id) {
         Destination item = service.getById(id);
+
         if (item == null)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error("Destination not found."));
+
         return ResponseEntity.ok(ApiResponse.ok(item));
     }
 
@@ -40,14 +44,20 @@ public class DestinationController {
     public ResponseEntity<ApiResponse> update(@PathVariable("id") Long id, @RequestBody Destination destination, HttpSession session) {
 
         if (!sessionService.isAdmin(session)) {
+
             return adminOnly(session);
+
         }
 
         try {
+
             Destination updatedItem = service.update(id, destination);
             return ResponseEntity.ok(ApiResponse.ok("Destination updated successfully.", updatedItem));
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+
         }
     }
 
@@ -61,9 +71,13 @@ public class DestinationController {
 
         boolean isDeleted = service.delete(id);
         if (isDeleted) {
+
             return ResponseEntity.ok(ApiResponse.ok("Destination deleted successfully.", null));
+
         } else {
+
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error("Destination not found."));
+
         }
     }
 
@@ -75,17 +89,25 @@ public class DestinationController {
         try {
             Destination saved = service.create(destination);
             return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok("Destination created successfully.", saved));
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+
         }
     }
 
 
 
     private ResponseEntity<ApiResponse> adminOnly(HttpSession session) {
+
         if (sessionService.getCurrentUser(session) == null) {
+
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("Please sign in first."));
+
         }
+
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ApiResponse.error("Administrator permission is required."));
+
     }
 }

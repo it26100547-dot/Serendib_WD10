@@ -13,18 +13,23 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/hotels")
 public class HotelController {
+
     private final HotelService service;
     private final SessionService sessionService;
 
     public HotelController(HotelService service, SessionService sessionService) {
+
         this.service = service;
         this.sessionService = sessionService;
+
     }
 
     @GetMapping
     public ResponseEntity<ApiResponse> getAll(@RequestParam(name = "destination", required = false) String destination) {
+
         List<Hotel> list = (destination == null || destination.isBlank()) ? service.getAll() : service.getByDestination(destination);
         return ResponseEntity.ok(ApiResponse.ok(list));
+
     }
 
     @GetMapping("/{id}")
@@ -37,11 +42,15 @@ public class HotelController {
 
     @PostMapping
     public ResponseEntity<ApiResponse> create(@RequestBody Hotel hotel, HttpSession session) {
+
         if (!sessionService.isAdmin(session))
             return adminOnly(session);
+
         try {
+
             Hotel saved = service.create(hotel);
             return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok("Hotel created successfully.", saved));
+
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
@@ -55,8 +64,11 @@ public class HotelController {
         }
         try {
             Hotel updatedHotel = service.update(id, hotel);
+
             return ResponseEntity.ok(ApiResponse.ok("Hotel updated successfully.", updatedHotel));
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
@@ -69,9 +81,13 @@ public class HotelController {
         }
         try {
             service.delete(id);
+
             return ResponseEntity.ok(ApiResponse.ok("Hotel deleted successfully.", null));
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+
         }
     }
 
@@ -79,8 +95,12 @@ public class HotelController {
 
     private ResponseEntity<ApiResponse> adminOnly(HttpSession session) {
         if (sessionService.getCurrentUser(session) == null) {
+
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("Please sign in first."));
+
         }
+
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ApiResponse.error("Administrator permission is required."));
+
     }
 }

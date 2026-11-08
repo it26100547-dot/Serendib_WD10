@@ -28,25 +28,38 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<ApiResponse> register(@RequestBody RegisterRequest request) {
         try {
+
             User user = userService.register(request);
+
             return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok("Registration successful.", safeUser(user)));
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
 
     @PostMapping("/login")
     public ResponseEntity<ApiResponse> login(@RequestBody AuthRequest request, HttpSession session) {
+
         User user = userService.authenticate(request.getEmail(), request.getPassword());
-        if (user == null) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("Invalid email or password."));
+
+        if (user == null)
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("Invalid email or password."));
+
         sessionService.login(session, user);
+
         return ResponseEntity.ok(ApiResponse.ok("Login successful.", safeUser(user)));
     }
 
     @GetMapping("/me")
     public ResponseEntity<ApiResponse> me(HttpSession session) {
+
         User user = sessionService.getCurrentUser(session);
-        if (user == null) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("You are not signed in."));
+
+        if (user == null)
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("You are not signed in."));
+
         return ResponseEntity.ok(ApiResponse.ok(safeUser(user)));
     }
 
@@ -60,6 +73,7 @@ public class AuthController {
 
 
     private Map<String, Object> safeUser(User user) {
+
         Map<String, Object> data = new LinkedHashMap<>();
         data.put("id", user.getId());
         data.put("firstName", user.getFirstName());
@@ -72,5 +86,6 @@ public class AuthController {
         data.put("active", user.getActive());
         data.put("admin", user.isAdmin());
         return data;
+
     }
 }

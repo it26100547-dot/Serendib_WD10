@@ -15,59 +15,92 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Reads and writes users.txt. Every CRUD step is visible in this class. */
+
 @Repository
 public class UserRepository {
+
     private final Path filePath;
     private final ObjectMapper mapper = new ObjectMapper();
 
     public UserRepository(@Value("${serendib.database.dir:data/notepad-database}") String databaseDir) {
+
         filePath = Paths.get(databaseDir, "users.txt");
+
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
         createFileIfMissing();
+
     }
 
     private void createFileIfMissing() {
+
         try {
+
             if (filePath.getParent() != null) Files.createDirectories(filePath.getParent());
+
             if (!Files.exists(filePath)) Files.writeString(filePath, "[]");
+
         } catch (IOException e) {
+
             throw new RuntimeException("Could not create database file.", e);
+
         }
     }
 
     public List<User> findAll() {
+
         try {
+
             if (!Files.exists(filePath) || Files.size(filePath) == 0) return new ArrayList<>();
+
             List<User> items = mapper.readValue(filePath.toFile(), new TypeReference<List<User>>() {});
+
             return items == null ? new ArrayList<>() : items;
+
         } catch (IOException e) {
+
             throw new RuntimeException("Could not read users.txt", e);
+
         }
     }
 
     public User findById(Long id) {
+
         if (id == null) return null;
+
         for (User item : findAll()) {
+
             if (id.equals(item.getId())) return item;
+
         }
+
         return null;
     }
 
     public synchronized User save(User user) {
+
         List<User> items = findAll();
 
         if (user.getId() == null || user.getId() <= 0) {
+
             long nextId = 1;
+
             for (User item : items) {
+
                 if (item.getId() != null && item.getId() >= nextId) nextId = item.getId() + 1;
+
             }
+
             user.setId(nextId);
+
             items.add(user);
         } else {
+
             // Logic for UPDATE: replace the existing record in the list
             boolean found = false;
+
             for (int i = 0; i < items.size(); i++) {
                 if (user.getId().equals(items.get(i).getId())) {
                     items.set(i, user);
@@ -83,7 +116,9 @@ public class UserRepository {
         writeAll(items);
         return user;
     }
+
     // Logic for DELETE: remove the record by ID and write back to file
+
     public synchronized boolean deleteById(Long id) {
         if (id == null) return false;
         List<User> items = findAll();
