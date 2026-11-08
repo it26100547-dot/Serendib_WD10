@@ -17,6 +17,7 @@ public class TransportService {
         return repository.findAll();
     }
     public Transport getById(Long id) {
+        return repository.findById(id);
 
          }
     public List<Transport> getByType(String type) {
