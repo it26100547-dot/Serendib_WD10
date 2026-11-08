@@ -10,7 +10,7 @@ public class TourPackage extends CatalogItem {
 
     private static final long serialVersionUID = 1L;
 
-    // Encapsulated package fields
+
     private Integer days = 7;
     private Integer nights = 6;
     private Double normalPrice = 950.0;
@@ -21,16 +21,16 @@ public class TourPackage extends CatalogItem {
     private List<String> destinations = new ArrayList<>();
     private List<Long> destinationIds = new ArrayList<>();
 
-    // Component Combination references (Requirement 5)
+
     private Long transportId;
     private String transportName;
     private Long hotelId;
     private String hotelName;
 
-    // Day-by-day itinerary [ [dayTitle, dayDescription], ... ]
+
     private List<List<String>> itinerary = new ArrayList<>();
 
-    // Fully editable detail-page content
+
     private String route;
     private String priceUnit = "per person";
     private List<String> highlights = new ArrayList<>();
@@ -56,7 +56,7 @@ public class TourPackage extends CatalogItem {
         this.cover = cover;
     }
 
-    // Encapsulated Getters & Setters
+
     public Integer getDays() {
 
         return days != null ? days : 1;
@@ -64,9 +64,13 @@ public class TourPackage extends CatalogItem {
     }
 
     public void setDays(Integer days) {
+
         if (days != null && days < 1) {
+
             throw new IllegalArgumentException("Tour duration must be at least 1 day.");
+
         }
+
         this.days = days;
     }
 
@@ -91,10 +95,15 @@ public class TourPackage extends CatalogItem {
     }
 
     public void setPrice(Double price) {
+
         if (price != null && price < 0) {
+
             throw new IllegalArgumentException("Package price cannot be negative.");
+
         }
+
         this.price = price;
+
     }
 
     public Double getRating() {
@@ -235,7 +244,7 @@ public class TourPackage extends CatalogItem {
         this.bookingNote = bookingNote;
     }
 
-    // Domain business methods (Encapsulation)
+
     public double calculateSavings() {
         double regular = getNormalPrice();
         double discounted = getPrice();
@@ -248,7 +257,7 @@ public class TourPackage extends CatalogItem {
         return (int) Math.round((savings / getNormalPrice()) * 100);
     }
 
-    // Polymorphic overrides for DisplayableCard
+
     @Override
     public String getItemType() {
         return "PACKAGE";

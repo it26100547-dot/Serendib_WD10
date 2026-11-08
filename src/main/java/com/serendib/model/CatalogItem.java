@@ -3,17 +3,12 @@ package com.serendib.model;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * CatalogItem - Abstract catalog model demonstrating:
- * 1. INHERITANCE: Extends BaseEntity
- * 2. POLYMORPHISM: Implements DisplayableCard interface and provides base polymorphic card rendering
- * 3. ENCAPSULATION: Protects internal catalog properties via accessors and mutators
- */
+
 public abstract class CatalogItem extends BaseEntity implements DisplayableCard {
 
     private static final long serialVersionUID = 1L;
 
-    // Encapsulated fields common to all tourist items
+
     private String name;
     private String category;
     private String summary;
@@ -22,10 +17,13 @@ public abstract class CatalogItem extends BaseEntity implements DisplayableCard 
     private Boolean featured = false;
 
     public CatalogItem() {
+
         super();
+
     }
 
     public CatalogItem(Long id, String name, String category, String summary, String description, String image, Boolean featured) {
+
         super(id);
         this.name = name;
         this.category = category;
@@ -33,9 +31,10 @@ public abstract class CatalogItem extends BaseEntity implements DisplayableCard 
         this.description = description;
         this.image = image;
         this.featured = featured;
+
     }
 
-    // Encapsulated Getters & Setters
+
     public String getName() {
         return name;
     }
@@ -84,7 +83,7 @@ public abstract class CatalogItem extends BaseEntity implements DisplayableCard 
         this.featured = featured;
     }
 
-    // Default Polymorphic implementations of DisplayableCard
+
     @Override
     public String getCardTitle() {
         return this.name != null ? this.name : "";
@@ -102,6 +101,7 @@ public abstract class CatalogItem extends BaseEntity implements DisplayableCard 
 
     @Override
     public Map<String, Object> toCardMap() {
+
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("id", getId());
         map.put("type", getItemType());
@@ -113,5 +113,6 @@ public abstract class CatalogItem extends BaseEntity implements DisplayableCard 
         map.put("summary", getSummary());
         map.put("featured", getFeatured());
         return map;
+
     }
 }

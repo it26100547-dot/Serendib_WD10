@@ -7,20 +7,39 @@ import java.util.List;
 
 @Service
 public class TransportService {
+
     private final TransportRepository repository;
-    public TransportService(TransportRepository repository) { this.repository = repository; }
+    public TransportService(TransportRepository repository) {
+        this.repository = repository;
+    }
 
-    public List<Transport> getAll() { return repository.findAll(); }
-    public Transport getById(Long id) { return repository.findById(id); }
-    public List<Transport> getByType(String type) { return repository.findByType(type); }
-    public List<Transport> getAvailable() { return repository.findAvailable(); }
-    public long count() { return repository.count(); }
+    public List<Transport> getAll() {
+        return repository.findAll();
+    }
+    public Transport getById(Long id) {
 
-    public Transport create(Transport transport) { transport.setId(null); validate(transport); return repository.save(transport); }
+         }
+    public List<Transport> getByType(String type) {
+        return repository.findByType(type);
+    }
+    public List<Transport> getAvailable() {
+        return repository.findAvailable();
+    }
+    public long count() {
+        return repository.count();
+    }
+
+    public Transport create(Transport transport) {
+        transport.setId(null); validate(transport); return repository.save(transport);
+    }
+
     //Adding update operation
     public Transport update(Long id, Transport transport) {
+
         Transport existing = repository.findById(id);
+
         if (existing == null) {
+
             throw new IllegalArgumentException("Transport with ID " + id + " does not exist.");
         }
 
@@ -30,17 +49,28 @@ public class TransportService {
 
         return repository.save(transport);
     }
+
     //Adding delete operation
+
     public boolean delete(Long id) {
+
         if (!repository.existsById(id)) {
+
             throw new IllegalArgumentException("Transport with ID " + id + " does not exist.");
         }
         return repository.deleteById(id);
+
     }
 
     private void validate(Transport transport) {
-        if (transport.getName() == null || transport.getName().isBlank()) throw new IllegalArgumentException("Vehicle name is required.");
-        if (transport.getPrice() < 0) throw new IllegalArgumentException("Price cannot be negative.");
-        if (transport.getCapacity() < 1) transport.setCapacity(4);
+
+        if (transport.getName() == null || transport.getName().isBlank())
+            throw new IllegalArgumentException("Vehicle name is required.");
+
+        if (transport.getPrice() < 0)
+            throw new IllegalArgumentException("Price cannot be negative.");
+
+        if (transport.getCapacity() < 1)
+            transport.setCapacity(4);
     }
 }

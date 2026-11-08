@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Builds the dynamic data used on the home page. */
+
 @Service
 public class HomeService {
     private final TourPackageService packageService;

@@ -10,10 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-/** Complete Tour Package CRUD API. */
+
 @RestController
 @RequestMapping("/api/packages")
 public class TourPackageController {
+
     private final TourPackageService service;
     private final SessionService sessionService;
 
@@ -39,8 +40,11 @@ public class TourPackageController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getById(@PathVariable("id") Long id) {
+
         TourPackage item = service.getById(id);
+
         if (item == null)
+
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error("Tour package not found."));
 
         return ResponseEntity.ok(ApiResponse.ok(item));
@@ -48,31 +52,45 @@ public class TourPackageController {
 
     @PostMapping
     public ResponseEntity<ApiResponse> create(@RequestBody TourPackage tourPackage, HttpSession session) {
+
         if (!sessionService.isAdmin(session))
+
             return adminOnly(session);
+
         try {
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(ApiResponse.ok("Tour package created successfully.", service.create(tourPackage)));
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok("Tour package created successfully.", service.create(tourPackage)));
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+
         }
     }
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse> update(@PathVariable("id") Long id, @RequestBody TourPackage tourPackage, HttpSession session) {
+
         // Check if user is admin
         if (!sessionService.isAdmin(session)) {
+
             return adminOnly(session);
+
         }
 
         try {
+
             TourPackage updatedItem = service.update(id, tourPackage);
             return ResponseEntity.ok(ApiResponse.ok("Tour package updated successfully.", updatedItem));
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+
         }
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> delete(@PathVariable("id") Long id, HttpSession session) {
+
         // Check if user is admin
         if (!sessionService.isAdmin(session)) {
             return adminOnly(session);
@@ -81,18 +99,22 @@ public class TourPackageController {
         try {
             service.delete(id);
             return ResponseEntity.ok(ApiResponse.ok("Tour package deleted successfully.", null));
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+
         }
     }
 
 
 
-
-
     private ResponseEntity<ApiResponse> adminOnly(HttpSession session) {
+
         if (sessionService.getCurrentUser(session) == null) {
+
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("Please sign in first."));
+
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ApiResponse.error("Administrator permission is required."));
     }

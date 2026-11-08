@@ -16,26 +16,39 @@ import java.util.UUID;
 @Service
 public class FileStorageService {
     private static final Set<String> IMAGE_EXTENSIONS = Set.of("jpg", "jpeg", "png", "webp", "gif");
+
     private static final Set<String> RECEIPT_EXTENSIONS = Set.of("jpg", "jpeg", "png", "webp", "pdf");
+
     private final Path uploadRoot;
 
     public FileStorageService(@Value("${serendib.upload.dir:data/uploads}") String uploadDir) {
+
         this.uploadRoot = Paths.get(uploadDir).toAbsolutePath().normalize();
-        try { Files.createDirectories(uploadRoot); } catch (IOException e) { throw new RuntimeException(e); }
+        try { Files.createDirectories(uploadRoot); } catch (IOException e) { throw new RuntimeException(e);
+        }
     }
 
-    public String saveImage(MultipartFile file) { return save(file, "images", IMAGE_EXTENSIONS, 12 * 1024 * 1024L); }
+    public String saveImage(MultipartFile file) {
+        return save(file, "images", IMAGE_EXTENSIONS, 12 * 1024 * 1024L);
+    }
     public String saveReceipt(MultipartFile file) {
+
         String url = save(file, "receipts", RECEIPT_EXTENSIONS, 20 * 1024 * 1024L);
         return url.substring(url.lastIndexOf('/') + 1);
+
     }
 
     public Path getReceiptPath(String filename) {
+
         if (filename == null || !filename.matches("[a-fA-F0-9]{32}\\.(jpg|jpeg|png|webp|pdf)")) {
+
             throw new IllegalArgumentException("Invalid receipt file.");
+
         }
         Path path = uploadRoot.resolve("receipts").resolve(filename).normalize();
-        if (!path.startsWith(uploadRoot.resolve("receipts").normalize())) throw new IllegalArgumentException("Invalid receipt path.");
+
+        if (!path.startsWith(uploadRoot.resolve("receipts").normalize()))
+            throw new IllegalArgumentException("Invalid receipt path.");
         return path;
     }
 

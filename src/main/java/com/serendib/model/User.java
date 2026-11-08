@@ -2,31 +2,22 @@ package com.serendib.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-/**
- * User - Entity representing tourists and administrators.
- * Satisfies Requirement 6:
- * "Sign in page : We need to sign up and sign in ,edit password ."
- *
- * Demonstrates:
- * - INHERITANCE: Extends BaseEntity
- * - ENCAPSULATION: Password protection, validation, and role handling
- */
+
 public class User extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    // Encapsulated user fields
+
     private String firstName;
     private String lastName;
     private String email;
 
-    // Stored in the local Notepad database. REST controllers return safe DTO/maps
-    // and never expose this value in HTTP responses.
+
     private String password;
 
     private String phone;
     private String country = "Sri Lanka";
-    private String role = "TRAVELER"; // ADMIN or TRAVELER
+    private String role = "TRAVELER";
 
     public User() {
         super();
@@ -43,7 +34,7 @@ public class User extends BaseEntity {
         this.role = role != null ? role.toUpperCase() : "TRAVELER";
     }
 
-    // Encapsulated Getters & Setters
+
     public String getFirstName() {
         return firstName;
     }
@@ -102,9 +93,10 @@ public class User extends BaseEntity {
         this.role = role != null ? role.toUpperCase() : "TRAVELER";
     }
 
-    // Encapsulated domain business methods
+
     @JsonIgnore
     public String getFullName() {
+
         String f = firstName != null ? firstName : "";
         String l = lastName != null ? lastName : "";
         return (f + " " + l).trim();
@@ -115,26 +107,31 @@ public class User extends BaseEntity {
         return "ADMIN".equalsIgnoreCase(this.role);
     }
 
-    /**
-     * Encapsulated password verification
-     */
+
     public boolean verifyPassword(String rawPassword) {
+
         if (this.password == null || rawPassword == null) return false;
         return this.password.equals(rawPassword.trim());
+
     }
 
-    /**
-     * Encapsulated change password operation with validation
-     */
+
     public boolean changePassword(String currentPassword, String newPassword) {
+
         if (!verifyPassword(currentPassword)) {
+
             return false;
         }
         if (newPassword == null || newPassword.trim().length() < 4) {
+
             throw new IllegalArgumentException("New password must be at least 4 characters long.");
+
         }
         this.password = newPassword.trim();
+
         markUpdated();
+
         return true;
+
     }
 }

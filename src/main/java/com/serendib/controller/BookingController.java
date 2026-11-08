@@ -26,9 +26,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
+import java.util.Map;
 
-
+/**
+ * Booking controller kept intentionally simple and explicit.
+ * A logged-in user can create/view/pay/cancel their own bookings.
+ */
 @RestController
 @RequestMapping("/api/bookings")
 public class BookingController {
@@ -87,8 +90,6 @@ public class BookingController {
         }
     }
 
-
-
     @GetMapping("/{id}/receipt")
     public ResponseEntity<Resource> receipt(@PathVariable("id") Long id, HttpSession session) {
         User user = sessionService.getCurrentUser(session);
@@ -118,60 +119,42 @@ public class BookingController {
             return ResponseEntity.notFound().build();
         }
     }
-    //Adding Update Operation
-    @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse> updateBooking(@PathVariable("id") Long id,
-                                                     @RequestBody Booking updatedBooking,
-                                                     HttpSession session) {
+
+    @PostMapping(value = "/{id}/slip", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ApiResponse> uploadSlip(
+            @PathVariable("id") Long id,
+            @RequestPart("file") MultipartFile file,
+            HttpSession session) {
+
+        if (sessionService.getCurrentUser(session) == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(ApiResponse.error("Please sign in first."));
+        }
+
+        try {
+            String slipUrl = fileStorageService.saveImage(file);
+            return ResponseEntity.ok(ApiResponse.ok("Payment slip uploaded successfully.", Map.of("url", slipUrl)));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
+    @PostMapping("/{id}/cancel")
+    public ResponseEntity<ApiResponse> cancelBooking(@PathVariable("id") Long id, HttpSession session) {
         User user = sessionService.getCurrentUser(session);
         if (user == null) {
             return unauthorizedBooking();
         }
 
         try {
-
-            Booking existing = getOwnedBooking(id, user);
-
-
-            updatedBooking.setUserId(user.getId());
-            updatedBooking.setUserEmail(user.getEmail());
-            updatedBooking.setCustomerName(user.getFullName());
-            if (updatedBooking.getPhone() == null || updatedBooking.getPhone().isBlank()) {
-                updatedBooking.setPhone(user.getPhone());
-            }
-
-
-            calculatePrice(updatedBooking);
-
-            Booking saved = bookingService.update(id, updatedBooking);
-            return ResponseEntity.ok(ApiResponse.ok("Booking updated successfully.", saved));
+            Booking booking = getOwnedBooking(id, user);
+            booking.setStatus("CANCELLED");
+            Booking updated = bookingService.update(id, booking);
+            return ResponseEntity.ok(ApiResponse.ok("Booking cancelled successfully.", updated));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
-    //Adding Delete Opearation
-    @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse> deleteBooking(@PathVariable("id") Long id, HttpSession session) {
-        User user = sessionService.getCurrentUser(session);
-        if (user == null) {
-            return unauthorizedBooking();
-        }
-
-        try {
-
-            getOwnedBooking(id, user);
-
-            boolean deleted = bookingService.delete(id);
-            if (deleted) {
-                return ResponseEntity.ok(ApiResponse.ok("Booking deleted successfully.", null));
-            }
-            return ResponseEntity.badRequest().body(ApiResponse.error("Failed to delete booking."));
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
-        }
-    }
-
-
 
     private Booking getOwnedBooking(Long id, User user) {
         Booking booking = bookingService.getById(id);
